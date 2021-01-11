@@ -1,0 +1,31 @@
+.header {
+    padding-left: 16px;
+
+    &__link {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        height: 64px;
+        width: 100vw;
+    }
+
+    &__logo {
+        height: 64px;
+        width: 240px;
+        &::after {
+            content: "";
+            display: inline-block;
+            background-image: url("../assets/styles/logo/logo.svg") !important;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center center;
+            height: 60px;
+            width: 240px;
+        }
+
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}
