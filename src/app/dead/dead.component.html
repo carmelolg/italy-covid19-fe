@@ -1,1 +1,8 @@
-<p>dead works!</p>
+<span *ngIf="totalDeadValues.length">
+  <app-chart [chartConfig]="totalDead" [info]="totalDeadInfo"></app-chart>
+  <mat-divider></mat-divider>
+</span>
+
+<span *ngIf="totalDeadIncreaseValues.length">
+  <app-chart [chartConfig]="totalDeadIncrease" [info]="totalDeadIncreaseInfo"></app-chart>
+</span>

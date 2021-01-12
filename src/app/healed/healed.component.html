@@ -1,1 +1,8 @@
-<p>healed works!</p>
+<span *ngIf="totalRecoveredValues.length">
+  <app-chart [chartConfig]="totalRecovered" [info]="totalRecoveredInfo"></app-chart>
+  <mat-divider></mat-divider>
+</span>
+
+<span *ngIf="totalRecoveredIncreaseValues.length">
+  <app-chart [chartConfig]="totalRecoveredIncrease" [info]="totalRecoveredIncreaseInfo"></app-chart>
+</span>
