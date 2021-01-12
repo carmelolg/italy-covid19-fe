@@ -1,0 +1,3 @@
+<app-hospitalized *ngIf="hospitalizedData.results && hospitalizedData.results.length > 0
+  && intensiveCareData.results && intensiveCareData.results.length > 0" region="Italia"
+  [intensiveCare]="intensiveCareData" [hospitalized]="hospitalizedData"></app-hospitalized>

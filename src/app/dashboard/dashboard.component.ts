@@ -1,5 +1,5 @@
+import { ChartService } from './../charts/chart.service';
 import { DashBoardService } from './dashboard.service';
-import { ChartService } from './chart.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { environment } from './../../environments/environment';
@@ -17,18 +17,11 @@ export class DashboardComponent implements OnInit {
   public migrationDate;
   public resumeData: any = {};
 
-  public growthRatesData: any = {};
-  public newCasesData: any = {};
-  public newCasesVariationData: any = {};
-  public totalPositiveData: any = {};
-
   private baseUrl: string = environment.baseUrl;
 
   ngOnInit() {
     this.getMigrationDate();
     this.getResume();
-
-    this.getInfected();
 
   }
 
@@ -46,31 +39,6 @@ export class DashboardComponent implements OnInit {
     this.dashboardService.getResume().subscribe((data : any) =>{
       this.resumeData = data;
     });
-  }
-
-  private getInfected(){
-
-    let _subs = this.dashboardService.getGrowthRates().subscribe((data: any) => {
-      this.growthRatesData = data;
-      _subs.unsubscribe();
-    });
-
-    let _subsNewCases = this.dashboardService.getNewCases().subscribe((data: any) => {
-      this.newCasesData = data;
-      _subsNewCases.unsubscribe();
-    });
-
-    let _subsNewCasesVariation = this.dashboardService.getNewCasesVariation().subscribe((data: any) => {
-      this.newCasesVariationData = data;
-      _subsNewCasesVariation.unsubscribe();
-    });
-
-    let _subsTotalPositive = this.dashboardService.getTotalPositive().subscribe((data: any) => {
-      this.totalPositiveData = data;
-      _subsTotalPositive.unsubscribe();
-    });
-
-
   }
 
   public changeTabHandler(tab): void {

@@ -16,24 +16,5 @@ export class DashBoardService {
     return this.http.get(url, { params: { all: 'true' } });
   }
 
-  getGrowthRates() {
-    const url = this.baseUrl + 'italy/growthRate';
-    return this.http.get(url);
-  }
-
-  getNewCases() {
-    const url = this.baseUrl + 'italy/total/new';
-    return this.http.get(url);
-  }
-
-  getTotalPositive() {
-    const url = this.baseUrl + 'italy/total/positive';
-    return this.http.get(url);
-  }
-
-  getNewCasesVariation() {
-    const url = this.baseUrl + 'italy/total/new/variation';
-    return this.http.get(url);
-  }
 
 }

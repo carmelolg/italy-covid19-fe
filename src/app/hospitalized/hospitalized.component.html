@@ -1,0 +1,20 @@
+<span *ngIf="totalHospitalizedValues.length">
+  <app-chart [chartConfig]="totalHospitalized" [info]="totalHospitalizedInfo"></app-chart>
+  <mat-divider></mat-divider>
+</span>
+
+<span *ngIf="totalHospitalizedIncreaseValues.length">
+  <app-chart [chartConfig]="totalHospitalizedIncrease" [info]="totalHospitalizedIncreaseInfo">
+  </app-chart>
+  <mat-divider></mat-divider>
+</span>
+
+<span *ngIf="totalIntensiveCareValues.length">
+  <app-chart [chartConfig]="totalIntensiveCare" [info]="totalIntensiveCareInfo"></app-chart>
+  <mat-divider></mat-divider>
+</span>
+
+<span *ngIf="totalIntensiveCareIncreaseValues.length">
+  <app-chart [chartConfig]="totalIntensiveCareIncrease" [info]="totalIntensiveCareIncreaseInfo">
+  </app-chart>
+</span>

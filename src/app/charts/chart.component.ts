@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, ViewChild, OnDestroy } from '@angular/core';
 import { InfoChart } from '../shared/model/InfoChart';
-import { ChartService } from '../dashboard/chart.service';
+import { ChartService } from './chart.service';
 import { Subscription } from 'rxjs';
 
 @Component({

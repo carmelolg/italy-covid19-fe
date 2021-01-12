@@ -1,0 +1,18 @@
+<span *ngIf="totalNewCaseValues.length">
+  <app-chart [chartConfig]="totalNewCases" [info]="totalNewCasesInfo"></app-chart>
+  <mat-divider></mat-divider>
+</span>
+
+<span *ngIf="totalNewCaseVariationValues.length">
+  <app-chart [chartConfig]="totalNewCasesVariation" [info]="totalNewCasesVariationInfo"></app-chart>
+  <mat-divider></mat-divider>
+</span>
+
+<span *ngIf="totalPositiveValues.length">
+  <app-chart [chartConfig]="totalPositives" [info]="totalPositivesInfo"></app-chart>
+  <mat-divider></mat-divider>
+</span>
+
+<span *ngIf="growthRateValues.length">
+  <app-chart [chartConfig]="growthRates" [info]="growthRatesInfo"></app-chart>
+</span>

@@ -1,6 +1,6 @@
-import { ChartService } from './../chart.service';
-import { InfoChart } from './../../shared/model/InfoChart';
-import { Chart } from './../../shared/model/Chart';
+import { ChartService } from './../charts/chart.service';
+import { InfoChart } from './../shared/model/InfoChart';
+import { Chart } from './../shared/model/Chart';
 import { Component, Input, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
 
@@ -42,7 +42,7 @@ export class InfectedComponent implements OnInit {
     this.growthRatesInfo.title = 'Tasso di crescita';
     this.growthRatesInfo.subtitle = this.region;
     this.growthRatesInfo.secondLegend = 'Tasso di crescita giornaliero';
-    this.growthRatesInfo.desc = 'Il seguente grafico rappresenta l\'andamento del tasso di crescita dell\'epidemia in Italia';
+    this.growthRatesInfo.desc = 'Il seguente grafico rappresenta l\'andamento del tasso di crescita dell\'epidemia in ' + this.region;
 
     this.totalNewCasesInfo = new InfoChart();
     this.totalNewCasesInfo.title = 'Variazione totale contagiati';
@@ -60,7 +60,7 @@ export class InfectedComponent implements OnInit {
     this.totalPositivesInfo.title = 'Persone attualmente positive';
     this.totalNewCasesVariationInfo.subtitle = this.region;
     this.totalPositivesInfo.firstLegend = 'Numero di persone attualmente positive';
-    this.totalPositivesInfo.desc = 'Il seguente grafico rappresenta l\'andamento delle persone attualmente positive in Italia';
+    this.totalPositivesInfo.desc = 'Il seguente grafico rappresenta l\'andamento delle persone attualmente positive in ' + this.region;
 
     this.getGrowthRates();
     this.getNewCases();
