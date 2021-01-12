@@ -19,6 +19,7 @@ import { DashboardInfectedComponent } from './dashboard-infected/dashboard-infec
 import { DashboardHospitalizedComponent } from './dashboard-hospitalized/dashboard-hospitalized.component';
 import { DashboardHealedComponent } from './dashboard-healed/dashboard-healed.component';
 import { DashboardDeadComponent } from './dashboard-dead/dashboard-dead.component';
+import { DashboardTestsComponent } from './dashboard-tests/dashboard-tests.component';
 
 @NgModule({
   imports: [
@@ -30,6 +31,6 @@ import { DashboardDeadComponent } from './dashboard-dead/dashboard-dead.componen
     RouterModule.forChild(DashboardRoutes)
   ],
   providers: [DatePipe, CdkColumnDef],
-  declarations: [DashboardComponent, ResumeComponent, StatsComponent, InfectedComponent, HospitalizedComponent, DeadComponent, HealedComponent, TestsComponent, DashboardInfectedComponent, DashboardHospitalizedComponent, DashboardHealedComponent, DashboardDeadComponent]
+  declarations: [DashboardComponent, ResumeComponent, StatsComponent, InfectedComponent, HospitalizedComponent, DeadComponent, HealedComponent, TestsComponent, DashboardInfectedComponent, DashboardHospitalizedComponent, DashboardHealedComponent, DashboardDeadComponent, DashboardTestsComponent]
 })
 export class DashboardModule { }

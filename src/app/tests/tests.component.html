@@ -1,1 +1,8 @@
-<p>tests works!</p>
+<span *ngIf="totalTestsIncreaseValues.length">
+
+  <app-chart [chartConfig]="totalTestsIncrease" [info]="totalTestsIncreaseInfo"></app-chart>
+  <mat-divider></mat-divider>
+
+  <!-- <app-chart [chartConfig]="percentageNewPositiveByTest" [info]="percentageNewPositiveByTestInfo">
+  </app-chart> -->
+</span>
