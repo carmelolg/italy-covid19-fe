@@ -3,6 +3,7 @@ import { Chart } from './../shared/model/Chart';
 import { InfoChart } from './../shared/model/InfoChart';
 import { Component, Input, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
+import { Observable, ReplaySubject, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-tests',
@@ -13,6 +14,7 @@ export class TestsComponent implements OnInit {
 
   @Input() region: string;
   @Input() tests: any;
+  @Input() newPositive: any;
 
   public totalTestsIncreaseInfo: InfoChart;
   public percentageNewPositiveByTestInfo: InfoChart;
@@ -37,11 +39,17 @@ export class TestsComponent implements OnInit {
     this.percentageNewPositiveByTestInfo.firstLegend = 'Percentuale';
     this.percentageNewPositiveByTestInfo.desc = 'Il seguente grafico rappresenta l\'andamento della percentuale di positivi rispetto ai tamponi effettuati in Italia';
 
-    this.getTests();
-    this.getPercentage();
+    let _subsTests = this.getTests();
+
+    _subsTests.subscribe(next => {
+      this.getPercentage();
+    });
   }
 
-  getTests() {
+  getTests(): ReplaySubject<any> {
+
+    const promise = new ReplaySubject(1);
+
     if (this.tests.results.length > 0) {
       var _dataLabels = [];
       this.tests.results.forEach(item => {
@@ -49,18 +57,25 @@ export class TestsComponent implements OnInit {
         this.totalTestsIncreaseValues.push(item.increaseFromYesterday);
       });
       this.totalTestsIncrease = this.chartService.createChart(_dataLabels, 'Line', this.totalTestsIncreaseValues);
+      promise.next();
     }
+
+    return promise;
   }
 
   getPercentage() {
-    // let _percentageNewPositiveByTest: number[] = [];
-    // for (let index = 0; index < this.totalNewCaseValues.length; index++) {
-    //   const newPositive = this.totalNewCaseValues[index];
-    //   const test = this.totalTestsIncreaseValues[index];
+    if (this.newPositive && this.newPositive.results.length > 0 && this.tests && this.tests.results && this.tests.results.length > 0) {
+      let _percentageNewPositiveByTest: number[] = [];
+      var _dataLabels = [];
+      for (let index = 0; index < this.newPositive.results.length; index++) {
+        const _newPositive = this.newPositive.results[index];
+        const test = this.totalTestsIncreaseValues[index];
+        _dataLabels.push(this.datepipe.transform(_newPositive.data, 'dd/MM'));
 
-    //   _percentageNewPositiveByTest[index] = Number(((newPositive * 100) / test).toFixed(2));
-    // }
-    // this.percentageNewPositiveByTest = this.chartService.createChart(this.dataLabels, 'Line', _percentageNewPositiveByTest);
+        _percentageNewPositiveByTest[index] = Number(((_newPositive.value * 100) / test).toFixed(2));
+      }
+      this.percentageNewPositiveByTest = this.chartService.createChart(_dataLabels, 'Line', _percentageNewPositiveByTest);
+    }
   }
 
 }

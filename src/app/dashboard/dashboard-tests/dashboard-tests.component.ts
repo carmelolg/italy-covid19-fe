@@ -1,3 +1,4 @@
+import { DashboardObservableService } from './../dashboard-observable.service';
 import { DashboardTestsService } from './dashboard-tests.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -9,10 +10,16 @@ import { Component, OnInit } from '@angular/core';
 export class DashboardTestsComponent implements OnInit {
 
   public tests: any = {};
-  constructor(private dashboardTestService: DashboardTestsService) { }
+  public newPositive: any = {};
+  constructor(private dashboardTestService: DashboardTestsService, private dashboardObservableService: DashboardObservableService) { }
 
   ngOnInit(): void {
     this.getTests();
+
+    this.dashboardObservableService.newPositive$.subscribe(_newPositive => {
+      this.newPositive = _newPositive;
+    });
+
   }
 
   private getTests() {

@@ -1,1 +1,2 @@
-<app-tests *ngIf="tests.results && tests.results.length > 0" region="Italia" [tests]="tests"></app-tests>
+<app-tests *ngIf="tests.results && tests.results.length > 0 && newPositive.results && newPositive.results.length > 0"
+  region="Italia" [tests]="tests" [newPositive]="newPositive"></app-tests>

@@ -1,3 +1,4 @@
+import { DashboardObservableService } from './../dashboard-observable.service';
 import { Component, OnInit } from '@angular/core';
 import { DashboardInfectedService } from './dashboard-infected.service';
 
@@ -8,7 +9,7 @@ import { DashboardInfectedService } from './dashboard-infected.service';
 })
 export class DashboardInfectedComponent implements OnInit {
 
-  constructor(private dashboardInfectedService: DashboardInfectedService) { }
+  constructor(private dashboardInfectedService: DashboardInfectedService, private dashboardObservableService: DashboardObservableService) { }
 
   public growthRatesData: any = {};
   public newCasesData: any = {};
@@ -28,6 +29,7 @@ export class DashboardInfectedComponent implements OnInit {
 
     let _subsNewCases = this.dashboardInfectedService.getNewCases().subscribe((data: any) => {
       this.newCasesData = data;
+      this.dashboardObservableService.broadcastNewPositive(data);
       _subsNewCases.unsubscribe();
     });
 
