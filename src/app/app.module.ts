@@ -18,6 +18,12 @@ import { SharedModule } from './shared/shared.module';
 import { SpinnerComponent } from './shared/spinner.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { RegionComponent } from './region/region.component';
+import { RegionDeadComponent } from './region/region-dead/region-dead.component';
+import { RegionHealedComponent } from './region/region-healed/region-healed.component';
+import { RegionHospitalizedComponent } from './region/region-hospitalized/region-hospitalized.component';
+import { RegionInfectedComponent } from './region/region-infected/region-infected.component';
+import { RegionTestsComponent } from './region/region-tests/region-tests.component';
 
 @NgModule({
   declarations: [

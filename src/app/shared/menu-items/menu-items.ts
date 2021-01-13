@@ -9,6 +9,7 @@ export interface Menu {
 
 const MENUITEMS = [
   { state: 'dashboard', name: 'Dashboard', type: 'link', icon: 'dashboard' },
+  { state: 'region', name: 'Regioni', type: 'link', icon: 'domain' },
 ];
 
 @Injectable()
