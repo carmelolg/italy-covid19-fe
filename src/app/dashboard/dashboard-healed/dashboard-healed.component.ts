@@ -1,5 +1,6 @@
 import { DashboardHealedService } from './dashboard-healed.service';
 import { Component, OnInit } from '@angular/core';
+import {take} from 'rxjs/operators';
 
 @Component({
   selector: 'app-dashboard-healed',
@@ -17,9 +18,8 @@ export class DashboardHealedComponent implements OnInit {
   }
 
   getHealed() {
-    let _subs = this.dashboardHealedService.getHealed().subscribe((data: any) => {
+    this.dashboardHealedService.getHealed().pipe(take(1)).subscribe((data: any) => {
       this.healed = data;
-      _subs.unsubscribe();
     });
   }
 }

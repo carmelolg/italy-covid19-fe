@@ -1,6 +1,7 @@
-import { DashboardObservableService } from './../dashboard-observable.service';
+import { DashboardObservableService } from '../dashboard-observable.service';
 import { DashboardTestsService } from './dashboard-tests.service';
 import { Component, OnInit } from '@angular/core';
+import {take} from 'rxjs/operators';
 
 @Component({
   selector: 'app-dashboard-tests',
@@ -24,9 +25,8 @@ export class DashboardTestsComponent implements OnInit {
 
   private getTests() {
 
-    let _subs = this.dashboardTestService.getTests().subscribe((data: any) => {
+    this.dashboardTestService.getTests().pipe(take((1))).subscribe((data: any) => {
       this.tests = data;
-      _subs.unsubscribe();
     });
   }
 }

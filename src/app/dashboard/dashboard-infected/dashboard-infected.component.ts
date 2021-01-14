@@ -1,6 +1,7 @@
-import { DashboardObservableService } from './../dashboard-observable.service';
+import { DashboardObservableService } from '../dashboard-observable.service';
 import { Component, OnInit } from '@angular/core';
 import { DashboardInfectedService } from './dashboard-infected.service';
+import {take} from 'rxjs/operators';
 
 @Component({
   selector: 'app-dashboard-infected',
@@ -21,26 +22,25 @@ export class DashboardInfectedComponent implements OnInit {
   }
 
   private getInfected() {
+    // NOTES
+    // use pipe(take(1)) instead of unsubscribe manually
+    // avoid underscore for private variables, use private instead
 
-    let _subs = this.dashboardInfectedService.getGrowthRates().subscribe((data: any) => {
+   this.dashboardInfectedService.getGrowthRates().pipe(take(1)).subscribe((data: any) => {
       this.growthRatesData = data;
-      _subs.unsubscribe();
     });
 
-    let _subsNewCases = this.dashboardInfectedService.getNewCases().subscribe((data: any) => {
+    this.dashboardInfectedService.getNewCases().pipe(take(1)).subscribe((data: any) => {
       this.newCasesData = data;
       this.dashboardObservableService.broadcastNewPositive(data);
-      _subsNewCases.unsubscribe();
     });
 
-    let _subsNewCasesVariation = this.dashboardInfectedService.getNewCasesVariation().subscribe((data: any) => {
+    this.dashboardInfectedService.getNewCasesVariation().pipe(take(1)).subscribe((data: any) => {
       this.newCasesVariationData = data;
-      _subsNewCasesVariation.unsubscribe();
     });
 
-    let _subsTotalPositive = this.dashboardInfectedService.getTotalPositive().subscribe((data: any) => {
+    this.dashboardInfectedService.getTotalPositive().pipe(take(1)).subscribe((data: any) => {
       this.totalPositiveData = data;
-      _subsTotalPositive.unsubscribe();
     });
   }
 

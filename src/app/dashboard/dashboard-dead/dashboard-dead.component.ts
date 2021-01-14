@@ -1,5 +1,6 @@
 import { DashboardDeadService } from './dashboard-dead.service';
 import { Component, OnInit } from '@angular/core';
+import {take} from 'rxjs/operators';
 
 @Component({
   selector: 'app-dashboard-dead',
@@ -17,9 +18,8 @@ export class DashboardDeadComponent implements OnInit {
   }
 
   getDead() {
-    let _subs = this.dashboardDeadService.getDead().subscribe((data: any) => {
+    this.dashboardDeadService.getDead().pipe(take(1)).subscribe((data: any) => {
       this.dead = data;
-      _subs.unsubscribe();
     });
   }
 

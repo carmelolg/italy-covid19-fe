@@ -1,5 +1,6 @@
 import { DashboardHospitalizedService } from './dashboard-hospitalized.service';
 import { Component, OnInit } from '@angular/core';
+import {take} from 'rxjs/operators';
 
 @Component({
   selector: 'app-dashboard-hospitalized',
@@ -21,14 +22,12 @@ export class DashboardHospitalizedComponent implements OnInit {
 
   private getData() {
 
-    let _subs = this.dashboardHospitalizedService.getIntensiveCare().subscribe((data: any) => {
+    this.dashboardHospitalizedService.getIntensiveCare().pipe(take(1)).subscribe((data: any) => {
       this.intensiveCareData = data;
-      _subs.unsubscribe();
     });
 
-    let _subsHospitalized = this.dashboardHospitalizedService.getHospitalized().subscribe((data: any) => {
+    this.dashboardHospitalizedService.getHospitalized().pipe(take(1)).subscribe((data: any) => {
       this.hospitalizedData = data;
-      _subsHospitalized.unsubscribe();
     });
 
   }
