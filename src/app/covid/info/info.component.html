@@ -1,0 +1,120 @@
+<div fxLayout="row wrap">
+  <div fxFlex.gt-lg="100" fxFlex.gt-md="100" fxFlex.gt-xs="100" fxFlex="100">
+    <mat-card>
+      <mat-card-content>
+        <div class="d-flex flex-wrap">
+          <div>
+            <mat-card-title>ITA-COVID19</mat-card-title>
+            <mat-card-subtitle>Informazioni utili</mat-card-subtitle>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+
+<div fxLayout="row wrap">
+  <div fxFlex.gt-lg="100" fxFlex.gt-md="100" fxFlex.gt-xs="100" fxFlex="100">
+    <mat-card>
+      <mat-card-content>
+        <div class="d-flex flex-wrap">
+          <div>
+            <mat-card-title>Bacheca</mat-card-title>
+            <mat-card-subtitle></mat-card-subtitle>
+          </div>
+        </div>
+
+        <mat-list>
+          <div mat-subheader>Aggiornamento dati</div>
+          <mat-list-item>
+            <mat-icon mat-list-icon>done</mat-icon>
+            I dati sono aggiornati automaticamente tra le 16:00 e le 20:00
+          </mat-list-item>
+          <!-- <mat-divider></mat-divider> -->
+          <div mat-subheader>Grafici</div>
+          <mat-list-item>
+            <mat-icon mat-list-icon>done</mat-icon>
+            Per facilità di utilizzo è rappresentato il trend degli ultimi 30 giorni
+          </mat-list-item>
+          <div mat-subheader>Dati grafico su Desktop</div>
+          <mat-list-item>
+            <mat-icon mat-list-icon>done</mat-icon>
+            Passaggio del mouse sui punti all'interno del grafico
+          </mat-list-item>
+          <div mat-subheader>Dati grafico su Mobile</div>
+          <mat-list-item>
+            <mat-icon mat-list-icon>done</mat-icon>
+            Click sui punti all'interno del grafico
+          </mat-list-item>
+          <div mat-subheader>Tasso di crescita</div>
+          <mat-list-item>
+            <mat-icon mat-list-icon>done</mat-icon>
+            Il calcolo è spiegato&nbsp; <a href="https://it.wikipedia.org/wiki/Tasso_di_crescita" target="_blank"> qui</a>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<div fxLayout="row wrap">
+  <div fxFlex.gt-lg="100" fxFlex.gt-md="100" fxFlex.gt-xs="100" fxFlex="100">
+    <mat-card>
+      <mat-card-content>
+        <div class="d-flex flex-wrap">
+          <div>
+            <mat-card-title>Team</mat-card-title>
+            <mat-card-subtitle></mat-card-subtitle>
+          </div>
+        </div>
+        <mat-grid-list cols="{{breakpoint}}" rowHeight="100px" (window:resize)="onResize($event)">
+          <mat-grid-tile *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows"
+                         [style.background]="tile.color">
+            <mat-grid-tile-header>
+              {{tile.header}}
+            </mat-grid-tile-header>
+            <div class="img-us">
+              <img width="100%" src="{{tile.imgUrl}}">
+            </div>
+            <mat-grid-tile-footer>
+              <!-- <a class="link-nostyle" target="_blank" href="{{tile.url}}"><i
+                      class="material-icons">language</i></a> -->
+              {{tile.footer}}
+            </mat-grid-tile-footer>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </mat-card-content>
+    </mat-card>
+    <span *ngIf="!tiles || tiles.length === 0">
+            <div class="spinner">
+                <div class="double-bounce1"></div>
+                <div class="double-bounce2"></div>
+            </div>
+        </span>
+  </div>
+</div>
+
+<div fxLayout="row wrap">
+  <div fxFlex.gt-lg="100" fxFlex.gt-md="100" fxFlex.gt-xs="100" fxFlex="100">
+    <mat-card>
+      <mat-card-content>
+        <div class="d-flex flex-wrap">
+          <div>
+            <mat-card-title>Riconoscimenti ed attribuzioni</mat-card-title>
+            <mat-card-subtitle></mat-card-subtitle>
+          </div>
+        </div>
+        I dati visualizzati in questo applicazione sono forniti dal Ministero della Salute italiano ed elaborati
+        dal Dipartimento della Protezione Civile.
+        <br>
+        Questo lavoro è un derivato (poiché usa i suoi dati) di <a
+        href="https://github.com/pcm-dpc/COVID-19">COVID-19 Italia - Monitoraggio situazione</a> licenziato
+        sotto
+        <a href="https://github.com/pcm-dpc/COVID-19/blob/master/LICENSE">CC BY
+          4.0</a>
+
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
