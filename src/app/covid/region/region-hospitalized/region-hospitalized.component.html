@@ -1,1 +1,3 @@
-<p>region-hospitalized works!</p>
+<app-hospitalized *ngIf="hospitalized.results && hospitalized.results.length > 0
+  && intensiveCare.results && intensiveCare.results.length > 0" [region]="regionName" [intensiveCare]="intensiveCare"
+  [hospitalized]="hospitalized"></app-hospitalized>

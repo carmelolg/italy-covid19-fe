@@ -25,7 +25,7 @@ export class RegionInfectedComponent implements OnInit {
       this.regionName = name;
       this.reset();
       this.getInfected();
-    })
+    });
   }
 
 

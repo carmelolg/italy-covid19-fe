@@ -1,1 +1,11 @@
-<p>region-tests works!</p>
+
+<span *ngIf="tests && tests.results">
+  Test {{tests.results.length}}
+</span>
+
+<span *ngIf="newPositive && newPositive.results">
+  Positive {{newPositive.results.length}}
+</span>
+
+<app-tests *ngIf="tests.results && tests.results.length > 0 && newPositive.results && newPositive.results.length > 0"
+  [region]="regionName" [tests]="tests" [newPositive]="newPositive"></app-tests>

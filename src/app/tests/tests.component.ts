@@ -29,13 +29,13 @@ export class TestsComponent implements OnInit {
 
     this.totalTestsIncreaseInfo = new InfoChart();
     this.totalTestsIncreaseInfo.title = 'Numero giornaliero di tamponi effettuati';
-    this.totalTestsIncreaseInfo.subtitle = 'Italia';
+    this.totalTestsIncreaseInfo.subtitle = this.region;
     this.totalTestsIncreaseInfo.firstLegend = 'Tamponi effettuati giorno per giorno';
     this.totalTestsIncreaseInfo.desc = 'Il seguente grafico rappresenta la variazione giornaliera dei tamponi effettuati in Italia';
 
     this.percentageNewPositiveByTestInfo = new InfoChart();
     this.percentageNewPositiveByTestInfo.title = 'Percentuale di positivi sui test effettuati';
-    this.percentageNewPositiveByTestInfo.subtitle = 'Italia';
+    this.percentageNewPositiveByTestInfo.subtitle = this.region;
     this.percentageNewPositiveByTestInfo.firstLegend = 'Percentuale';
     this.percentageNewPositiveByTestInfo.desc = 'Il seguente grafico rappresenta l\'andamento della percentuale di positivi rispetto ai tamponi effettuati in Italia';
 

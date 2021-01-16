@@ -18,7 +18,7 @@ export class RegionInfectedService {
   }
 
   getNewCases(name) {
-    const url = this.baseUrl + 'region/' + name + '/total';
+    const url = this.baseUrl + 'region/' + name + '/total/new';
     return this.http.get(url);
   }
 
