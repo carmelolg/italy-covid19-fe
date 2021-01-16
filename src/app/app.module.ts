@@ -18,6 +18,7 @@ import { SharedModule } from './shared/shared.module';
 import { SpinnerComponent } from './shared/spinner.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { RegioneStatsComponent } from './covid/region/regione-stats/regione-stats.component';
 
 @NgModule({
   declarations: [

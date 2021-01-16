@@ -17,4 +17,10 @@ export class DashBoardService {
   }
 
 
+  getStats() {
+    const url = this.baseUrl + 'italy/stats';
+    return this.http.get(url);
+  }
+
+
 }

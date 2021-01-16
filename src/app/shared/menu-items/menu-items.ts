@@ -11,8 +11,8 @@ export interface Menu {
 const MENUITEMS = [
   { state: 'dashboard', name: 'Dashboard', type: 'link', icon: 'dashboard' },
   { state: 'region', name: 'Regioni', type: 'link', icon: 'domain' },
-  { state: 'district', name: 'Province', type: 'link', icon: 'domain' },
-  { state: 'info', name: 'Info', type: 'link', icon: 'domain' },
+  { state: 'district', name: 'Province', type: 'link', icon: 'location_city' },
+  { state: 'info', name: 'Info', type: 'link', icon: 'info' },
 ];
 
 @Injectable()

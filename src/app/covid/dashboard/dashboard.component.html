@@ -15,7 +15,7 @@
           </div>
         </div>
 
-        <app-stats></app-stats>
+        <app-stats *ngIf="!isStatsUndefined()" [data]="statsData"></app-stats>
 
       </mat-card-content>
     </mat-card>
@@ -34,7 +34,7 @@
 
           </mat-tab>
           <mat-tab label="Contagi">
-              <app-dashboard-infected></app-dashboard-infected>
+            <app-dashboard-infected></app-dashboard-infected>
           </mat-tab>
           <mat-tab label="Ricoveri">
 

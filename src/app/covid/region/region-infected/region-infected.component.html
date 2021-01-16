@@ -1,1 +1,6 @@
-<p>region-infected works!</p>
+<app-infected *ngIf="growthRatesData.results && growthRatesData.results.length > 0
+  && totalPositiveData.results && totalPositiveData.results.length > 0
+  && newCasesData.results && newCasesData.results.length > 0
+  && newCasesVariationData.results && newCasesVariationData.results.length > 0" [region]="regionName"
+[growthRatesData]="growthRatesData" [totalPositiveData]="totalPositiveData" [newCasesData]="newCasesData"
+[newCasesVariationData]="newCasesVariationData"></app-infected>

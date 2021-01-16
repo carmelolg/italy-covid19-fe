@@ -1,1 +1,73 @@
-<p>region works!</p>
+<div fxLayout="row wrap">
+  <div fxFlex.gt-lg="100" fxFlex.gt-md="100" fxFlex.gt-xs="100" fxFlex="100">
+    <mat-card>
+      <mat-card-content>
+        <div class="d-flex flex-wrap">
+          <div>
+            <mat-card-title>Epidemia da COVID-19 per regioni italiane</mat-card-title>
+            <mat-card-subtitle>Per visualizzare il grafico scrivi il nome della regione</mat-card-subtitle>
+            <span *ngIf="migrationDate"><br />
+              <mat-card-title>Ultimo aggiornamento:
+                {{migrationDate | date:  'dd-MM-yyyy, H:mm' }}</mat-card-title>
+              <br />
+            </span>
+          </div>
+        </div>
+      </mat-card-content>
+
+      <mat-form-field class="form-field m-l-20">
+        <mat-label>Regione</mat-label>
+        <input type="text" placeholder="es. Piemonte/Calabria" aria-label="Number" matInput [formControl]="formControl"
+          [matAutocomplete]="auto" [(ngModel)]="regionNameInput" (keyup.enter)="call()">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+        <button *ngIf="regionNameInput" mat-button matSuffix mat-icon-button aria-label="Search" (click)="call()"
+          [disabled]="isLoading">
+          <mat-icon>check</mat-icon>
+        </button>
+      </mat-form-field>
+    </mat-card>
+  </div>
+</div>
+
+
+<div fxLayout="row wrap">
+  <div fxFlex.gt-lg="100" fxFlex.gt-md="100" fxFlex.gt-xs="100" fxFlex="100">
+    <mat-card>
+      <mat-card-content>
+        <app-regione-stats></app-regione-stats>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<div fxLayout="row wrap" *ngIf="regionNameInput.length > 0">
+  <div fxFlex.gt-lg="100" fxFlex.gt-md="100" fxFlex.gt-xs="100" fxFlex="100">
+    <mat-card>
+      <div class="min-height-800">
+        <mat-tab-group mat-align-tabs="center" mat-stretch-tabs (selectedTabChange)="changeTabHandler($event)">
+          <mat-tab label="Riepilogo">
+            <app-resume *ngIf="resumeData.results && resumeData.results.length > 0" [region]="regionNameInput"
+              [data]="resumeData.results"></app-resume>
+          </mat-tab>
+          <mat-tab label="Contagi">
+            <app-region-infected></app-region-infected>
+          </mat-tab>
+          <mat-tab label="Ricoveri">
+            <app-region-hospitalized></app-region-hospitalized>
+          </mat-tab>
+          <mat-tab label="Deceduti / Guariti">
+            <app-region-dead></app-region-dead>
+            <app-region-healed></app-region-healed>
+          </mat-tab>
+          <mat-tab label="Tamponi">
+            <app-region-tests></app-region-tests>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+    </mat-card>
+  </div>
+</div>

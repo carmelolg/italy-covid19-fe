@@ -16,12 +16,14 @@ export class DashboardComponent implements OnInit {
 
   public migrationDate;
   public resumeData: any = {};
+  public statsData: any = {};
 
   private baseUrl: string = environment.baseUrl;
 
   ngOnInit() {
     this.getMigrationDate();
     this.getResume();
+    this.getStats();
 
   }
 
@@ -41,10 +43,18 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  public changeTabHandler(): void {
+  private getStats() {
+    this.dashboardService.getStats().subscribe(stats => this.statsData = stats);
+  }
+
+  public changeTabHandler(event: any): void {
     this.chartService.updateChartModel();
   }
 
+
+  public isStatsUndefined() {
+    return Object.keys(this.statsData).length === 0;
+  }
 
 
 }
