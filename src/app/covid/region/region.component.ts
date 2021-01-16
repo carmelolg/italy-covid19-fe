@@ -40,6 +40,11 @@ export class RegionComponent implements OnInit, AfterViewInit {
         map(value => this._filter(value))
       );
 
+    this.regionService.getMigrationDate().subscribe(data => {
+      if (data != null && data.date != null) {
+        this.migrationDate = data.date;
+      }
+    });
   }
 
   ngAfterViewInit() {

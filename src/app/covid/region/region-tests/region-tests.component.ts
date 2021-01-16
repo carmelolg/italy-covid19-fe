@@ -23,8 +23,6 @@ export class RegionTestsComponent implements OnInit {
       this.getTests();
     });
     this.regionObservableService.newPositive$.subscribe(_newPositive => {
-      console.log(_newPositive);
-
       this.newPositive = _newPositive;
     });
 
@@ -34,9 +32,7 @@ export class RegionTestsComponent implements OnInit {
   private getTests() {
 
     this.regionTestService.getTests(this.regionName).pipe(take((1))).subscribe((data: any) => {
-
       this.tests = data;
-      console.log(this.tests);
     });
   }
 

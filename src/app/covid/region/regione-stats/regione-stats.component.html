@@ -1,1 +1,7 @@
 <app-stats *ngIf="!isDataUndefined()" [data] = "statsData"></app-stats>
+<span *ngIf="isDataUndefined()">
+  <div class="spinner">
+      <div class="double-bounce1"></div>
+      <div class="double-bounce2"></div>
+  </div>
+</span>
