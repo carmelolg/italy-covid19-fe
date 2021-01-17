@@ -36,6 +36,7 @@ import { HealedComponent } from '../shared/healed/healed.component';
 import { DistrictVaccineComponent } from './district/district-vaccine/district-vaccine.component';
 import { RegionVaccineComponent } from './region/region-vaccine/region-vaccine.component';
 import { DashboardVaccineComponent } from './dashboard/dashboard-vaccine/dashboard-vaccine.component';
+import { VaccineComponent } from './vaccine/vaccine.component';
 
 
 @NgModule({
@@ -67,7 +68,8 @@ import { DashboardVaccineComponent } from './dashboard/dashboard-vaccine/dashboa
     DistrictStatsComponent,
     DistrictVaccineComponent,
     RegionVaccineComponent,
-    DashboardVaccineComponent
+    DashboardVaccineComponent,
+    VaccineComponent
   ],
   imports: [
     CommonModule,
