@@ -53,6 +53,9 @@
             <app-resume *ngIf="resumeData.results && resumeData.results.length > 0" [region]="regionNameInput"
               [data]="resumeData.results"></app-resume>
           </mat-tab>
+          <mat-tab label="Vaccini">
+            <app-region-vaccine></app-region-vaccine>
+          </mat-tab>
           <mat-tab label="Contagi">
             <app-region-infected></app-region-infected>
           </mat-tab>

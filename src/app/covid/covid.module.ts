@@ -33,6 +33,9 @@ import { InfectedComponent } from '../shared/infected/infected.component';
 import { HospitalizedComponent } from '../shared/hospitalized/hospitalized.component';
 import { DeadComponent } from '../shared/dead/dead.component';
 import { HealedComponent } from '../shared/healed/healed.component';
+import { DistrictVaccineComponent } from './district/district-vaccine/district-vaccine.component';
+import { RegionVaccineComponent } from './region/region-vaccine/region-vaccine.component';
+import { DashboardVaccineComponent } from './dashboard/dashboard-vaccine/dashboard-vaccine.component';
 
 
 @NgModule({
@@ -61,7 +64,10 @@ import { HealedComponent } from '../shared/healed/healed.component';
     InfoComponent,
     RegionStatsComponent,
     DistrictInfectedComponent,
-    DistrictStatsComponent
+    DistrictStatsComponent,
+    DistrictVaccineComponent,
+    RegionVaccineComponent,
+    DashboardVaccineComponent
   ],
   imports: [
     CommonModule,
