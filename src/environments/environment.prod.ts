@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseUrl: "https://ita-covid19.herokuapp.com/"
+  baseUrl: "https://italy-covid19-be.herokuapp.com/"
 };
