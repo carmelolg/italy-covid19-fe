@@ -1,6 +1,6 @@
-import { ChartService } from './../charts/chart.service';
-import { InfoChart } from './../shared/model/InfoChart';
-import { Chart } from './../shared/model/Chart';
+import { ChartService } from './../../charts/chart.service';
+import { InfoChart } from './../model/InfoChart';
+import { Chart } from './../model/Chart';
 import { Component, Input, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
 

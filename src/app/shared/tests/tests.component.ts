@@ -1,9 +1,9 @@
-import { ChartService } from './../charts/chart.service';
-import { Chart } from './../shared/model/Chart';
-import { InfoChart } from './../shared/model/InfoChart';
-import { Component, Input, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
-import { Observable, ReplaySubject, Subject } from 'rxjs';
+import { Component, Input, OnInit } from '@angular/core';
+import { ReplaySubject } from 'rxjs';
+import { ChartService } from '../../charts/chart.service';
+import { Chart } from '../model/Chart';
+import { InfoChart } from '../model/InfoChart';
 
 @Component({
   selector: 'app-tests',

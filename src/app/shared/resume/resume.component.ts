@@ -1,8 +1,8 @@
 import { DatePipe } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
-import { Chart } from './../shared/model/Chart';
-import { InfoChart } from './../shared/model/InfoChart';
-import { ChartService } from './../charts/chart.service';
+import { Chart } from './../model/Chart';
+import { InfoChart } from './../model/InfoChart';
+import { ChartService } from './../../charts/chart.service';
 
 @Component({
   selector: 'app-resume',

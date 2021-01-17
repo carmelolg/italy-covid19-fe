@@ -6,14 +6,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ChartistModule } from 'ng-chartist';
 import { ChartModule } from '../charts/chart.module';
-import { DeadComponent } from '../dead/dead.component';
 import { DemoMaterialModule } from '../demo-material-module';
-import { HealedComponent } from '../healed/healed.component';
-import { HospitalizedComponent } from '../hospitalized/hospitalized.component';
-import { InfectedComponent } from '../infected/infected.component';
-import { ResumeComponent } from '../resume/resume.component';
-import { StatsComponent } from '../stats/stats.component';
-import { TestsComponent } from '../tests/tests.component';
+import { TestsComponent } from '../shared/tests/tests.component';
 import { CovidComponent } from './covid.component';
 import { CovidRoutes } from './covid.routing';
 import { DashboardDeadComponent } from './dashboard/dashboard-dead/dashboard-dead.component';
@@ -33,6 +27,12 @@ import { RegionComponent } from './region/region.component';
 import { RegionStatsComponent } from './region/regione-stats/regione-stats.component';
 import { DistrictInfectedComponent } from './district/district-infected/district-infected.component';
 import { DistrictStatsComponent } from './district/district-stats/district-stats.component';
+import { ResumeComponent } from '../shared/resume/resume.component';
+import { StatsComponent } from '../shared/stats/stats.component';
+import { InfectedComponent } from '../shared/infected/infected.component';
+import { HospitalizedComponent } from '../shared/hospitalized/hospitalized.component';
+import { DeadComponent } from '../shared/dead/dead.component';
+import { HealedComponent } from '../shared/healed/healed.component';
 
 
 @NgModule({

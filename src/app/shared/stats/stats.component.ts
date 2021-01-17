@@ -1,7 +1,7 @@
-import { Utils } from './../shared/utils.service';
+import { Utils } from './../utils.service';
 import { DatePipe } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
-import { Tile } from './../shared/model/Tiles';
+import { Tile } from './../model/Tiles';
 
 @Component({
   selector: 'app-stats',
