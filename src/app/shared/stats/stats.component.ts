@@ -39,9 +39,6 @@ export class StatsComponent implements OnInit {
 
     if (!!this.data) {
 
-      console.log(this.data);
-
-
       if (!!this.data.currentPositivePercentageBasedOnTests) {
         this.genericTiles.push({ footer: '', header: 'Tasso di positività', percentage: this.data.currentPositivePercentageBasedOnTests + '%', cols: 2, rows: 2, color: '#b3e0ff' });
       }
