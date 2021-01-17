@@ -31,6 +31,8 @@ import { RegionInfectedComponent } from './region/region-infected/region-infecte
 import { RegionTestsComponent } from './region/region-tests/region-tests.component';
 import { RegionComponent } from './region/region.component';
 import { RegionStatsComponent } from './region/regione-stats/regione-stats.component';
+import { DistrictInfectedComponent } from './district/district-infected/district-infected.component';
+import { DistrictStatsComponent } from './district/district-stats/district-stats.component';
 
 
 @NgModule({
@@ -57,7 +59,9 @@ import { RegionStatsComponent } from './region/regione-stats/regione-stats.compo
     RegionTestsComponent,
     DistrictComponent,
     InfoComponent,
-    RegionStatsComponent
+    RegionStatsComponent,
+    DistrictInfectedComponent,
+    DistrictStatsComponent
   ],
   imports: [
     CommonModule,
