@@ -37,20 +37,11 @@
             <mat-icon mat-list-icon>done</mat-icon>
             Per facilità di utilizzo è rappresentato il trend degli ultimi 30 giorni
           </mat-list-item>
-          <div mat-subheader>Dati grafico su Desktop</div>
-          <mat-list-item>
-            <mat-icon mat-list-icon>done</mat-icon>
-            Passaggio del mouse sui punti all'interno del grafico
-          </mat-list-item>
-          <div mat-subheader>Dati grafico su Mobile</div>
-          <mat-list-item>
-            <mat-icon mat-list-icon>done</mat-icon>
-            Click sui punti all'interno del grafico
-          </mat-list-item>
           <div mat-subheader>Tasso di crescita</div>
           <mat-list-item>
             <mat-icon mat-list-icon>done</mat-icon>
-            Il calcolo è spiegato&nbsp; <a href="https://it.wikipedia.org/wiki/Tasso_di_crescita" target="_blank"> qui</a>
+            Il calcolo è spiegato&nbsp; <a href="https://it.wikipedia.org/wiki/Tasso_di_crescita" target="_blank">
+              qui</a>
           </mat-list-item>
         </mat-list>
       </mat-card-content>
@@ -70,7 +61,7 @@
         </div>
         <mat-grid-list cols="{{breakpoint}}" rowHeight="100px" (window:resize)="onResize($event)">
           <mat-grid-tile *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows"
-                         [style.background]="tile.color">
+            [style.background]="tile.color">
             <mat-grid-tile-header>
               {{tile.header}}
             </mat-grid-tile-header>
@@ -87,11 +78,11 @@
       </mat-card-content>
     </mat-card>
     <span *ngIf="!tiles || tiles.length === 0">
-            <div class="spinner">
-                <div class="double-bounce1"></div>
-                <div class="double-bounce2"></div>
-            </div>
-        </span>
+      <div class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+      </div>
+    </span>
   </div>
 </div>
 
@@ -105,15 +96,28 @@
             <mat-card-subtitle></mat-card-subtitle>
           </div>
         </div>
-        I dati visualizzati in questo applicazione sono forniti dal Ministero della Salute italiano ed elaborati
-        dal Dipartimento della Protezione Civile.
+        I dati, visualizzati su questa piattaforma, sono forniti dal <b>Ministero della Salute italiano</b> ed elaborati
+        dal <b>Dipartimento della Protezione Civile</b>.
         <br>
-        Questo lavoro è un derivato (poiché usa i suoi dati) di <a
-        href="https://github.com/pcm-dpc/COVID-19">COVID-19 Italia - Monitoraggio situazione</a> licenziato
+        Questo lavoro è un derivato (poiché usa i suoi dati) di <a href="https://github.com/pcm-dpc/COVID-19">COVID-19
+          Italia - Monitoraggio situazione</a> licenziato
         sotto
         <a href="https://github.com/pcm-dpc/COVID-19/blob/master/LICENSE">CC BY
           4.0</a>
 
+<br>
+<br>
+<mat-divider></mat-divider>
+<br>
+
+        I dati sui vaccini, visualizzati su questa piattaforma, sono forniti dal <b>Commissario straordinario per
+          l'emergenza Covid-19</b> italiano.
+        <br>
+        Questo lavoro è un derivato (poiché usa i suoi dati) di <a
+          href="https://github.com/italia/covid19-opendata-vaccini">Covid-19 Opendata Vaccini</a> licenziato
+        sotto
+        <a href="https://github.com/italia/covid19-opendata-vaccini/blob/master/LICENSE.md">CC BY
+          4.0</a>
       </mat-card-content>
     </mat-card>
   </div>
