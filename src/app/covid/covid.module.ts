@@ -41,6 +41,7 @@ import { VaccineComponent } from './vaccine/vaccine.component';
 import { VaccinePercentageComponent } from './vaccine/vaccine-percentage/vaccine-percentage.component';
 import { VaccineDeliveredComponent } from './vaccine/vaccine-delivered/vaccine-delivered.component';
 import { VaccinePerformedComponent } from './vaccine/vaccine-performed/vaccine-performed.component';
+import { VaccineSomministrationPointComponent } from './vaccine/vaccine-somministration-point/vaccine-somministration-point.component';
 
 
 @NgModule({
@@ -77,7 +78,8 @@ import { VaccinePerformedComponent } from './vaccine/vaccine-performed/vaccine-p
     VaccinePercentageComponent,
     RankingComponent,
     VaccineDeliveredComponent,
-    VaccinePerformedComponent
+    VaccinePerformedComponent,
+    VaccineSomministrationPointComponent
   ],
   imports: [
     CommonModule,

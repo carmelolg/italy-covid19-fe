@@ -11,4 +11,13 @@ export class VaccineService {
 
   private baseUrl: string = environment.baseUrl;
 
+  public getRankingByPerformed() {
+    const url = this.baseUrl + '/vaccine/ranking/performed';
+    return this.http.get<any>(url);
+  }
+
+  public getRankingByDelivered() {
+    const url = this.baseUrl + '/vaccine/ranking/delivered';
+    return this.http.get<any>(url);
+  }
 }

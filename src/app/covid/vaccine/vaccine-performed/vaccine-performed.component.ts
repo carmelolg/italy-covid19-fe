@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { VaccinePerformedService } from './vaccine-performed.service';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-vaccine-performed',
@@ -8,17 +7,17 @@ import { VaccinePerformedService } from './vaccine-performed.service';
 })
 export class VaccinePerformedComponent implements OnInit {
 
-  constructor(private vaccinePerformedService: VaccinePerformedService) { }
+  constructor() { }
+
+  @Input() ranking: any = {};
 
   bestFive = [];
   worstFive = [];
   fullRanking = [];
 
   ngOnInit(): void {
-    this.vaccinePerformedService.getRankingByPerformed().subscribe(ranking => {
-      this.bestFive = ranking.bestRanked;
-      this.worstFive = ranking.worstRanked;
-      this.fullRanking = ranking.fullRanking;
-    });
+      this.bestFive = this.ranking.bestRanked;
+      this.worstFive = this.ranking.worstRanked;
+      this.fullRanking = this.ranking.fullRanking;
   }
 }
