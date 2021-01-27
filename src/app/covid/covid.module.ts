@@ -1,3 +1,4 @@
+import { RankingComponent } from './../shared/ranking/ranking.component';
 import { CdkColumnDef } from '@angular/cdk/table';
 import { CommonModule, DatePipe } from '@angular/common';
 import { NgModule } from '@angular/core';
@@ -37,6 +38,9 @@ import { DistrictVaccineComponent } from './district/district-vaccine/district-v
 import { RegionVaccineComponent } from './region/region-vaccine/region-vaccine.component';
 import { DashboardVaccineComponent } from './dashboard/dashboard-vaccine/dashboard-vaccine.component';
 import { VaccineComponent } from './vaccine/vaccine.component';
+import { VaccinePercentageComponent } from './vaccine/vaccine-percentage/vaccine-percentage.component';
+import { VaccineDeliveredComponent } from './vaccine/vaccine-delivered/vaccine-delivered.component';
+import { VaccinePerformedComponent } from './vaccine/vaccine-performed/vaccine-performed.component';
 
 
 @NgModule({
@@ -69,7 +73,11 @@ import { VaccineComponent } from './vaccine/vaccine.component';
     DistrictVaccineComponent,
     RegionVaccineComponent,
     DashboardVaccineComponent,
-    VaccineComponent
+    VaccineComponent,
+    VaccinePercentageComponent,
+    RankingComponent,
+    VaccineDeliveredComponent,
+    VaccinePerformedComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,24 @@
+<table mat-table [dataSource]="data" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="rank">
+    <th mat-header-cell *matHeaderCellDef> Posizione </th>
+    <td mat-cell *matCellDef="let element; let position = index">
+      <span [ngClass]="{'first': position === 0, 'second': position === 1 , 'third': position === 2, 'generic': position > 2}">
+        {{position + 1}}
+      </span> </td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Nome </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="percentage">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element"> {{element.value}} <span *ngIf="options.percentage">%</span></td>
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

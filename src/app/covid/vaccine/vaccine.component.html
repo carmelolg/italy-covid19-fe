@@ -13,3 +13,24 @@
       </mat-card>
   </div>
 </div>
+
+<div fxLayout="row wrap">
+  <div fxFlex.gt-lg="100" fxFlex.gt-md="100" fxFlex.gt-xs="100" fxFlex="100">
+    <mat-card>
+      <div class="min-height-800">
+        <mat-tab-group mat-align-tabs="center" mat-stretch-tabs (selectedTabChange)="changeTabHandler($event)">
+          <mat-tab label="Somministrazioni">
+            <app-vaccine-percentage></app-vaccine-percentage>
+          </mat-tab>
+          <mat-tab label="Vaccinati">
+            <app-vaccine-performed></app-vaccine-performed>
+          </mat-tab>
+          <mat-tab label="Consegne">
+            <app-vaccine-delivered></app-vaccine-delivered>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+    </mat-card>
+  </div>
+</div>
+

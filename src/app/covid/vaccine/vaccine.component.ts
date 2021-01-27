@@ -1,3 +1,4 @@
+import { VaccineService } from './vaccine.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VaccineComponent implements OnInit {
 
-  constructor() { }
+  constructor(private vaccineService: VaccineService) { }
 
   ngOnInit(): void {
+  }
+
+
+  public changeTabHandler(event: any): void {
   }
 
 }

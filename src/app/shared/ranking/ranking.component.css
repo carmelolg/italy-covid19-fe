@@ -1,0 +1,48 @@
+table {
+  width: 100%;
+}
+
+.first {
+  height: 25px;
+  width: 25px;
+  background-color: rgba(33, 150, 243, 1.0);
+  border-radius: 50%;
+  display: inline-block;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+}
+
+.second {
+  height: 25px;
+  width: 25px;
+  background-color: rgba(33, 150, 243, 0.85);
+  border-radius: 50%;
+  display: inline-block;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+}
+
+
+.third {
+  height: 25px;
+  width: 25px;
+  background-color:rgba(33, 150, 243, 0.7);
+  border-radius: 50%;
+  display: inline-block;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+}
+
+.generic {
+  height: 25px;
+  width: 25px;
+  background-color: #99d6ff;
+  border-radius: 50%;
+  display: inline-block;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+}

@@ -1,0 +1,59 @@
+<div fxLayout="row wrap">
+  <div fxFlex.gt-lg="100" fxFlex.gt-md="100" fxFlex.gt-xs="100" fxFlex="100">
+    <mat-card>
+      <mat-card-content>
+        <div class="d-flex flex-wrap">
+          <div>
+            <mat-card-title>Le migliori cinque</mat-card-title>
+            <mat-card-subtitle>Le migliori cinque regioni per percentuale di somministrazione rispetto alle dosi
+              ricevute
+            </mat-card-subtitle>
+          </div>
+        </div>
+      </mat-card-content>
+      <app-ranking [data]="bestFive" [options]="{percentage: true}"></app-ranking>
+    </mat-card>
+  </div>
+</div>
+
+<br />
+<mat-divider></mat-divider>
+
+<div fxLayout="row wrap">
+  <div fxFlex.gt-lg="100" fxFlex.gt-md="100" fxFlex.gt-xs="100" fxFlex="100">
+    <mat-card>
+      <mat-card-content>
+        <div class="d-flex flex-wrap">
+          <div>
+            <mat-card-title>Le cinque meno performanti</mat-card-title>
+            <mat-card-subtitle>Le cinque regioni meno performanti per percentuale di somministrazione rispetto alle dosi
+              ricevute
+            </mat-card-subtitle>
+          </div>
+        </div>
+      </mat-card-content>
+      <app-ranking [data]="worstFive" [options]="{percentage: true}"></app-ranking>
+    </mat-card>
+  </div>
+</div>
+
+<br />
+<mat-divider></mat-divider>
+
+<div fxLayout="row wrap">
+  <div fxFlex.gt-lg="100" fxFlex.gt-md="100" fxFlex.gt-xs="100" fxFlex="100">
+    <mat-card>
+      <mat-card-content>
+        <div class="d-flex flex-wrap">
+          <div>
+            <mat-card-title>La classifica completa</mat-card-title>
+            <mat-card-subtitle>Le percentuali di somministrazione di tutte le regioni rispetto alle dosi
+              ricevute
+            </mat-card-subtitle>
+          </div>
+        </div>
+      </mat-card-content>
+      <app-ranking [data]="fullRanking" [options]="{percentage: true}"></app-ranking>
+    </mat-card>
+  </div>
+</div>
