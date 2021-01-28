@@ -17,4 +17,5 @@ export class VaccineSomministrationPointComponent implements OnInit {
     this.vaccineSomministrationPointService.getSomministrationPoints().subscribe(points => this.points = points);
   }
 
+
 }

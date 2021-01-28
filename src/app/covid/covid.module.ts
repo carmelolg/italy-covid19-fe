@@ -1,4 +1,3 @@
-import { RankingComponent } from './../shared/ranking/ranking.component';
 import { CdkColumnDef } from '@angular/cdk/table';
 import { CommonModule, DatePipe } from '@angular/common';
 import { NgModule } from '@angular/core';
@@ -8,7 +7,14 @@ import { RouterModule } from '@angular/router';
 import { ChartistModule } from 'ng-chartist';
 import { ChartModule } from '../charts/chart.module';
 import { DemoMaterialModule } from '../demo-material-module';
+import { DeadComponent } from '../shared/dead/dead.component';
+import { HealedComponent } from '../shared/healed/healed.component';
+import { HospitalizedComponent } from '../shared/hospitalized/hospitalized.component';
+import { InfectedComponent } from '../shared/infected/infected.component';
+import { ResumeComponent } from '../shared/resume/resume.component';
+import { StatsComponent } from '../shared/stats/stats.component';
 import { TestsComponent } from '../shared/tests/tests.component';
+import { RankingComponent } from './../shared/ranking/ranking.component';
 import { CovidComponent } from './covid.component';
 import { CovidRoutes } from './covid.routing';
 import { DashboardDeadComponent } from './dashboard/dashboard-dead/dashboard-dead.component';
@@ -16,7 +22,11 @@ import { DashboardHealedComponent } from './dashboard/dashboard-healed/dashboard
 import { DashboardHospitalizedComponent } from './dashboard/dashboard-hospitalized/dashboard-hospitalized.component';
 import { DashboardInfectedComponent } from './dashboard/dashboard-infected/dashboard-infected.component';
 import { DashboardTestsComponent } from './dashboard/dashboard-tests/dashboard-tests.component';
+import { DashboardVaccineComponent } from './dashboard/dashboard-vaccine/dashboard-vaccine.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { DistrictInfectedComponent } from './district/district-infected/district-infected.component';
+import { DistrictStatsComponent } from './district/district-stats/district-stats.component';
+import { DistrictVaccineComponent } from './district/district-vaccine/district-vaccine.component';
 import { DistrictComponent } from './district/district.component';
 import { InfoComponent } from './info/info.component';
 import { RegionDeadComponent } from './region/region-dead/region-dead.component';
@@ -24,24 +34,14 @@ import { RegionHealedComponent } from './region/region-healed/region-healed.comp
 import { RegionHospitalizedComponent } from './region/region-hospitalized/region-hospitalized.component';
 import { RegionInfectedComponent } from './region/region-infected/region-infected.component';
 import { RegionTestsComponent } from './region/region-tests/region-tests.component';
+import { RegionVaccineComponent } from './region/region-vaccine/region-vaccine.component';
 import { RegionComponent } from './region/region.component';
 import { RegionStatsComponent } from './region/regione-stats/regione-stats.component';
-import { DistrictInfectedComponent } from './district/district-infected/district-infected.component';
-import { DistrictStatsComponent } from './district/district-stats/district-stats.component';
-import { ResumeComponent } from '../shared/resume/resume.component';
-import { StatsComponent } from '../shared/stats/stats.component';
-import { InfectedComponent } from '../shared/infected/infected.component';
-import { HospitalizedComponent } from '../shared/hospitalized/hospitalized.component';
-import { DeadComponent } from '../shared/dead/dead.component';
-import { HealedComponent } from '../shared/healed/healed.component';
-import { DistrictVaccineComponent } from './district/district-vaccine/district-vaccine.component';
-import { RegionVaccineComponent } from './region/region-vaccine/region-vaccine.component';
-import { DashboardVaccineComponent } from './dashboard/dashboard-vaccine/dashboard-vaccine.component';
-import { VaccineComponent } from './vaccine/vaccine.component';
-import { VaccinePercentageComponent } from './vaccine/vaccine-percentage/vaccine-percentage.component';
 import { VaccineDeliveredComponent } from './vaccine/vaccine-delivered/vaccine-delivered.component';
+import { VaccinePercentageComponent } from './vaccine/vaccine-percentage/vaccine-percentage.component';
 import { VaccinePerformedComponent } from './vaccine/vaccine-performed/vaccine-performed.component';
 import { VaccineSomministrationPointComponent } from './vaccine/vaccine-somministration-point/vaccine-somministration-point.component';
+import { VaccineComponent } from './vaccine/vaccine.component';
 
 
 @NgModule({

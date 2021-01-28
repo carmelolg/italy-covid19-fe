@@ -20,4 +20,9 @@ export class VaccineService {
     const url = this.baseUrl + '/vaccine/ranking/delivered';
     return this.http.get<any>(url);
   }
+
+  public getVaccineData() {
+    const url = this.baseUrl + '/vaccine/italy';
+    return this.http.get<any>(url);
+  }
 }
