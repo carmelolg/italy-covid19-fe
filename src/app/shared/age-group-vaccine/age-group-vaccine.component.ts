@@ -1,7 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ChartOptions, ChartService } from '../../charts/chart.service';
-import { Chart } from '../model/Chart';
-import { InfoChart } from '../model/InfoChart';
+import {Component, Input, OnInit} from '@angular/core';
+import {ChartOptions, ChartService} from '../../charts/chart.service';
+import {Chart} from '../model/Chart';
+import {InfoChart} from '../model/InfoChart';
 
 @Component({
   selector: 'app-age-group-vaccine',
@@ -10,7 +10,6 @@ import { InfoChart } from '../model/InfoChart';
 })
 export class AgeGroupVaccineComponent implements OnInit {
 
-  public chartInfo: InfoChart;
   public categoryChartInfo: InfoChart;
   public donutChartInfo: InfoChart;
 
@@ -27,23 +26,16 @@ export class AgeGroupVaccineComponent implements OnInit {
   donutLabels = [];
   donutChartValues = [];
 
-  chart: Chart;
   categoryChart: Chart;
   donutChart: Chart;
 
   @Input() region: string;
   @Input() data: any;
 
-  constructor(private chartService: ChartService) { }
+  constructor(private chartService: ChartService) {
+  }
 
   ngOnInit(): void {
-
-    this.chartInfo = new InfoChart();
-    this.chartInfo.title = 'Vaccinazioni per genere';
-    this.chartInfo.subtitle = this.region;
-    this.chartInfo.firstLegend = 'Donne';
-    this.chartInfo.secondLegend = 'Uomini';
-    this.chartInfo.desc = 'Il seguente grafico rappresenta le vaccinazioni di uomini e donne per fasce d\'età in Italia';
 
     this.categoryChartInfo = new InfoChart();
     this.categoryChartInfo.title = 'Vaccinazioni per categoria di persone';
@@ -74,15 +66,6 @@ export class AgeGroupVaccineComponent implements OnInit {
       this.womenValues.push(item.sessoFemminile);
     });
 
-    const options: ChartOptions = {
-      labels: this.labels,
-      prefixLabel: "Età: ",
-      type: 'Bar',
-      allLabelsVisible: true
-    };
-
-    this.chart = this.chartService.generateChart(options, this.manValues, this.womenValues);
-
   }
 
   private createCategoryChart() {
@@ -97,7 +80,7 @@ export class AgeGroupVaccineComponent implements OnInit {
 
     const options: ChartOptions = {
       labels: this.categoryLabels,
-      prefixLabel: "Età: ",
+      prefixLabel: 'Età: ',
       type: 'Bar',
       allLabelsVisible: true
     };
