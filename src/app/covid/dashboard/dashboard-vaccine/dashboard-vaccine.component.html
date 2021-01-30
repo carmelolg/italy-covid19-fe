@@ -1,15 +1,27 @@
 <div fxLayout="row wrap">
   <div fxFlex.gt-lg="100" fxFlex.gt-md="100" fxFlex.gt-xs="100" fxFlex="100">
-      <mat-card>
-          <mat-card-content>
-              <div class="d-flex flex-wrap">
-                  <div>
-                      <mat-card-title><mat-icon>filter_vintage</mat-icon> I dati sui vaccini sono in fase di elaborazione</mat-card-title>
-                      <mat-card-subtitle>La funzionalità sarà disponibile prima possibile. Previsione <b>31/01/2021</b>
-                      </mat-card-subtitle>
-                  </div>
-              </div>
-          </mat-card-content>
-      </mat-card>
+    <mat-card>
+      <mat-card-content>
+        <div class="d-flex flex-wrap">
+          <div>
+            <mat-card-title
+              ><mat-icon>filter_vintage</mat-icon> Stiamo per completare l'opera</mat-card-title
+            >
+            <mat-card-subtitle
+              >La funzionalità completa sarà disponibile prima possibile.
+              Previsione <b>31/01/2021</b>
+            </mat-card-subtitle>
+          </div>
+        </div>
+
+        <button mat-raised-button color="warn" (click) = "redirectToVaccini()">Clicca qui</button> per visualizzare la pagina dedicata ai dati italiani
+      </mat-card-content>
+    </mat-card>
   </div>
 </div>
+
+<app-age-group-vaccine
+  *ngIf="ageGroups.length > 0"
+  region="Italia"
+  [data]="ageGroups"
+></app-age-group-vaccine>

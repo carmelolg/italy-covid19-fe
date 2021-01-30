@@ -1,18 +1,14 @@
-import { DemoMaterialModule } from './../demo-material-module';
-import { CommonModule } from '@angular/common';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgModule } from '@angular/core';
-
+import { AccordionAnchorDirective, AccordionDirective, AccordionLinkDirective } from './accordion';
 import { MenuItems } from './menu-items/menu-items';
-import { AccordionAnchorDirective, AccordionLinkDirective, AccordionDirective } from './accordion';
-import { RankingComponent } from './ranking/ranking.component';
+
 
 
 @NgModule({
   declarations: [
     AccordionAnchorDirective,
     AccordionLinkDirective,
-    AccordionDirective,
+    AccordionDirective
   ],
   exports: [
     AccordionAnchorDirective,

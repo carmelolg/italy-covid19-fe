@@ -47,7 +47,9 @@ export class ResumeComponent implements OnInit {
       this.resumeRecoveredValues.push(item.recovered);
       this.resumeDeadValues.push(item.dead);
     });
+
     this.resume = this.chartService.createChart(this.resumeDateLabels, 'Line', this.resumeTotalValues, this.resumeNewValues, this.resumeRecoveredValues, this.resumeDeadValues);
+
   }
 
 }

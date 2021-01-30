@@ -2,6 +2,7 @@ import { Utils } from './../../shared/utils.service';
 import { VaccineService } from './vaccine.service';
 import { Component, OnInit } from '@angular/core';
 import { take } from 'rxjs/operators';
+import { ChartService } from '../../charts/chart.service';
 
 @Component({
   selector: 'app-vaccine',
@@ -10,7 +11,7 @@ import { take } from 'rxjs/operators';
 })
 export class VaccineComponent implements OnInit {
 
-  constructor(private vaccineService: VaccineService) { }
+  constructor(private chartService: ChartService, private vaccineService: VaccineService) { }
 
   performed = 0;
   delivered = 0;
@@ -59,7 +60,6 @@ export class VaccineComponent implements OnInit {
   getVaccineData() {
     return new Promise(resolve => {
       this.vaccineService.getVaccineData().pipe(take(1)).subscribe(data => {
-        console.log(data);
         this.vaccineData = data.all;
         this.lastUpdate = data.all.ultimoAggiornamentoInterno;
         resolve(true);
@@ -86,6 +86,7 @@ export class VaccineComponent implements OnInit {
   }
 
   public changeTabHandler(event: any): void {
+    this.chartService.updateChartModel();
   }
 
 }

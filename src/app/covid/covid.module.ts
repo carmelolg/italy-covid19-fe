@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { ChartistModule } from 'ng-chartist';
 import { ChartModule } from '../charts/chart.module';
 import { DemoMaterialModule } from '../demo-material-module';
+import { AgeGroupVaccineComponent } from '../shared/age-group-vaccine/age-group-vaccine.component';
 import { DeadComponent } from '../shared/dead/dead.component';
 import { HealedComponent } from '../shared/healed/healed.component';
 import { HospitalizedComponent } from '../shared/hospitalized/hospitalized.component';
@@ -79,7 +80,8 @@ import { VaccineComponent } from './vaccine/vaccine.component';
     RankingComponent,
     VaccineDeliveredComponent,
     VaccinePerformedComponent,
-    VaccineSomministrationPointComponent
+    VaccineSomministrationPointComponent,
+    AgeGroupVaccineComponent
   ],
   imports: [
     CommonModule,
