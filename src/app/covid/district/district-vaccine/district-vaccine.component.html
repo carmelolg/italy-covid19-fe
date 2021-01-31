@@ -13,7 +13,7 @@
           </div>
         </div>
 
-        <table mat-table [dataSource]="points" class="mat-elevation-z8">
+        <table *ngIf="points && points.length > 0" mat-table [dataSource]="points" class="mat-elevation-z8">
 
           <ng-container matColumnDef="comune">
             <th mat-header-cell *matHeaderCellDef> Comune </th>
@@ -30,10 +30,7 @@
 
         </table>
         <span *ngIf="!points || points.length === 0">
-          <div class="spinner">
-            <div class="double-bounce1"></div>
-            <div class="double-bounce2"></div>
-          </div>
+          Dati al momento non disponibili, controlla i punti di somministrazione dalla pagina delle regioni
         </span>
 
       </mat-card-content>
