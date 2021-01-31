@@ -29,6 +29,7 @@ export class AgeGroupVaccineComponent implements OnInit {
   categoryChart: Chart;
   donutChart: Chart;
 
+  @Input() provider: string;
   @Input() region: string;
   @Input() data: any;
 
@@ -38,22 +39,15 @@ export class AgeGroupVaccineComponent implements OnInit {
   ngOnInit(): void {
 
     this.categoryChartInfo = new InfoChart();
-    this.categoryChartInfo.title = 'Vaccinazioni per categoria di persone';
+    this.categoryChartInfo.title = this.provider ? 'Vaccinazioni ' + this.provider :  'Vaccinazioni per fasce d\'età';
     this.categoryChartInfo.subtitle = this.region;
     this.categoryChartInfo.firstLegend = 'Non sanitari';
     this.categoryChartInfo.secondLegend = 'Sanitari';
     this.categoryChartInfo.thirdLegend = 'RSA';
     this.categoryChartInfo.fourthLegend = 'Over 80';
-    this.categoryChartInfo.desc = 'Il seguente grafico rappresenta le vaccinazioni divise per categoria e fasce d\'età in Italia';
-
-    this.donutChartInfo = new InfoChart();
-    this.donutChartInfo.title = 'Vaccinazioni per fasce d\'età';
-    this.donutChartInfo.subtitle = this.region;
-    this.donutChartInfo.desc = 'Il seguente grafico a torta rappresenta le vaccinazioni divise per fasce d\'età in Italia';
-
+    this.categoryChartInfo.desc = 'Il seguente grafico rappresenta le vaccinazioni divise per categoria e fasce d\'età per la regione ' + this.region;
 
     this.createCategoryChart();
-    this.createDonutChart();
 
   }
 
@@ -78,9 +72,5 @@ export class AgeGroupVaccineComponent implements OnInit {
 
   }
 
-
-  private createDonutChart() {
-    // TODO
-  }
 
 }

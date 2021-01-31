@@ -21,6 +21,8 @@ export class RegionVaccineComponent implements OnInit {
   stats: any = {};
   tiles = [];
 
+  vaccinations: any[] = [];
+
   ngOnInit(): void {
 
     this.regionObservableService.regionName$.subscribe(name => {
@@ -28,7 +30,7 @@ export class RegionVaccineComponent implements OnInit {
       this.reset();
       this.getPoints();
       this.getVaccineStats();
-      //this.getVaccineData();
+      this.getVaccineData();
     });
 
 
@@ -43,7 +45,6 @@ export class RegionVaccineComponent implements OnInit {
   getVaccineStats() {
     this.regionVaccineService.getRegionVaccineStats(this.regionName).subscribe(stats => {
       this.stats = stats.length > 0 ? stats[0] : {};
-      console.log(this.stats);
       this.tiles.push({ footer: '', header: 'Percentuale eseguiti', percentage: this.stats.percentualeSomministrazione.toFixed(2) + ' %', cols: 4, rows: 2, color: '#99d6ff' });
       this.tiles.push({ footer: '', header: 'Consegnati', percentage: this.formatHundreds(this.stats.dosiConsegnate.toString()), cols: 2, rows: 2, color: '#b3e0ff' });
       this.tiles.push({ footer: '', header: 'Somministrati', percentage: this.formatHundreds(this.stats.dosiSomministrate.toString()), cols: 2, rows: 2, color: '#b3e0ff' });
@@ -52,15 +53,28 @@ export class RegionVaccineComponent implements OnInit {
   }
 
   getVaccineData() {
-    //this.regionVaccineService.getRegionVaccineData(this.regionName).subscribe(vaccineData => {
-    //this.vaccineData = vaccineData;
-    //console.log(vaccineData);
-    //});
-    // TODO
+    this.regionVaccineService.getRegionVaccineData(this.regionName).subscribe(vaccineData => {
+      console.log(vaccineData);
+
+      Object.keys(vaccineData).forEach(key => {
+
+        let _providerData: any = {};
+        _providerData.name = key;
+        let _innerArray = vaccineData[key];
+        _providerData.data = _innerArray.sort((a: any, b: any) => { return a.fasciaAnagrafica.localeCompare(b.fasciaAnagrafica); });
+
+        this.vaccinations.push(_providerData);
+      });
+
+      console.log(this.vaccinations);
+
+    });
   }
 
   reset() {
     this.points = [];
+    this.tiles = [];
+    this.vaccinations = [];
   }
 
   private formatHundreds(s: String): string {
