@@ -54,7 +54,6 @@ export class RegionVaccineComponent implements OnInit {
 
   getVaccineData() {
     this.regionVaccineService.getRegionVaccineData(this.regionName).subscribe(vaccineData => {
-      console.log(vaccineData);
 
       Object.keys(vaccineData).forEach(key => {
 
@@ -65,9 +64,6 @@ export class RegionVaccineComponent implements OnInit {
 
         this.vaccinations.push(_providerData);
       });
-
-      console.log(this.vaccinations);
-
     });
   }
 
