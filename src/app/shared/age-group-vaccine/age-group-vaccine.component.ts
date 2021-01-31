@@ -52,19 +52,8 @@ export class AgeGroupVaccineComponent implements OnInit {
     this.donutChartInfo.desc = 'Il seguente grafico a torta rappresenta le vaccinazioni divise per fasce d\'età in Italia';
 
 
-    this.createGenderChart();
     this.createCategoryChart();
     this.createDonutChart();
-
-  }
-
-  private createGenderChart() {
-
-    this.data.forEach((item: any) => {
-      this.labels.push(item.fasciaAnagrafica);
-      this.manValues.push(item.sessoMaschile);
-      this.womenValues.push(item.sessoFemminile);
-    });
 
   }
 
