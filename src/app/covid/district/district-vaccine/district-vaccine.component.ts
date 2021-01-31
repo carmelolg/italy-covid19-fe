@@ -1,3 +1,6 @@
+import { environment } from './../../../../environments/environment';
+import { HttpClient } from '@angular/common/http';
+import { DistrictObservableService } from './../district-observable.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DistrictVaccineComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http: HttpClient, private districtObservableService: DistrictObservableService) { }
+
+  private baseUrl: string = environment.baseUrl;
+
+  points: any = [];
+  displayedColumns: string[] = ['comune', 'luogo'];
 
   ngOnInit(): void {
+    this.districtObservableService.districtName$.subscribe(name => {
+      this.getDistrictSomministrationPoint(name).subscribe(points => {
+        this.points = points;
+      });
+    });
+  }
+
+
+  public getDistrictSomministrationPoint(name) {
+    const url = this.baseUrl + 'vaccine/district/' + name + '/somministration_point';
+    return this.http.get<any>(url);
   }
 
 }
