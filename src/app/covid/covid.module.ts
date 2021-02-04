@@ -42,6 +42,7 @@ import { VaccinePercentageComponent } from './vaccine/vaccine-percentage/vaccine
 import { VaccinePerformedComponent } from './vaccine/vaccine-performed/vaccine-performed.component';
 import { VaccineSomministrationPointComponent } from './vaccine/vaccine-somministration-point/vaccine-somministration-point.component';
 import { VaccineComponent } from './vaccine/vaccine.component';
+import { DatamapComponent } from '../shared/datamap/datamap.component';
 
 
 @NgModule({
@@ -79,7 +80,8 @@ import { VaccineComponent } from './vaccine/vaccine.component';
     VaccineDeliveredComponent,
     VaccinePerformedComponent,
     VaccineSomministrationPointComponent,
-    AgeGroupVaccineComponent
+    AgeGroupVaccineComponent,
+    DatamapComponent
   ],
   imports: [
     CommonModule,

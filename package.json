@@ -8,13 +8,16 @@
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
-    "build": "ng build",
+    "build": "ng build --prod --build-optimizer=false",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --aot --prod --build-optimizer=false"
   },
   "private": true,
   "dependencies": {
+    "@amcharts/amcharts4": "^4.10.15",
+    "@amcharts/amcharts4-geodata": "^4.1.19",
     "@angular-devkit/core": "9.0.2",
     "@angular/animations": "^9.0.1",
     "@angular/cdk": "8.2.3",
@@ -50,6 +53,8 @@
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
+    "@amcharts/amcharts4": "^4.10.15",
+    "@amcharts/amcharts4-geodata": "^4.1.19",
     "@angular-devkit/build-angular": "^0.901.0",
     "@angular/language-service": "9.0.1",
     "@types/chartist": "^0.9.47",

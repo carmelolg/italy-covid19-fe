@@ -4,6 +4,7 @@ import {RegionComponent} from './region/region.component';
 import {InfoComponent} from './info/info.component';
 import {DistrictComponent} from './district/district.component';
 import { VaccineComponent } from './vaccine/vaccine.component';
+import { DatamapComponent } from '../shared/datamap/datamap.component';
 
 
 export const CovidRoutes: Routes = [
@@ -30,5 +31,9 @@ export const CovidRoutes: Routes = [
   {
     path: 'info',
     component: InfoComponent
+  },
+  {
+    path: 'datamap',
+    component: DatamapComponent
   }
 ];
