@@ -1,7 +1,6 @@
 import { CdkColumnDef } from '@angular/cdk/table';
 import { CommonModule, DatePipe } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ChartistModule } from 'ng-chartist';
@@ -86,7 +85,6 @@ import { DatamapComponent } from '../shared/datamap/datamap.component';
   imports: [
     CommonModule,
     DemoMaterialModule,
-    FlexLayoutModule,
     ChartistModule,
     ChartModule,
     FormsModule,

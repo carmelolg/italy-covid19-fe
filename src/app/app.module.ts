@@ -8,7 +8,6 @@ import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { AppRoutes } from './app.routing';
 import { AppComponent } from './app.component';
 
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppHeaderComponent } from './layouts/full/header/header.component';
 import { AppSidebarComponent } from './layouts/full/sidebar/sidebar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -31,7 +30,6 @@ import { environment } from '../environments/environment';
     BrowserAnimationsModule,
     DemoMaterialModule,
     FormsModule, ReactiveFormsModule,
-    FlexLayoutModule,
     HttpClientModule,
     SharedModule,
     RouterModule.forRoot(AppRoutes),
