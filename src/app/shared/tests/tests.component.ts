@@ -22,6 +22,8 @@ export class TestsComponent implements OnInit {
   constructor(private datepipe: DatePipe, private chartService: ChartService) { }
 
   totalTestsIncreaseValues = [];
+  totalTestsMolecolariIncreaseValues = [];
+  totalTestsAntigeniciRapidiIncreaseValues = [];
   totalTestsIncrease: Chart;
   percentageNewPositiveByTest: Chart;
 
@@ -31,6 +33,8 @@ export class TestsComponent implements OnInit {
     this.totalTestsIncreaseInfo.title = 'Numero giornaliero di tamponi effettuati';
     this.totalTestsIncreaseInfo.subtitle = this.region;
     this.totalTestsIncreaseInfo.firstLegend = 'Tamponi effettuati giorno per giorno';
+    this.totalTestsIncreaseInfo.secondLegend = 'Tamponi molecolari';
+    this.totalTestsIncreaseInfo.thirdLegend = 'Tamponi antigenici rapidi';
     this.totalTestsIncreaseInfo.desc = 'Il seguente grafico rappresenta la variazione giornaliera dei tamponi effettuati in Italia';
 
     this.percentageNewPositiveByTestInfo = new InfoChart();
@@ -39,9 +43,9 @@ export class TestsComponent implements OnInit {
     this.percentageNewPositiveByTestInfo.firstLegend = 'Percentuale';
     this.percentageNewPositiveByTestInfo.desc = 'Il seguente grafico rappresenta l\'andamento della percentuale di positivi rispetto ai tamponi effettuati in Italia';
 
-    let _subsTests = this.getTests();
+    const subsTests = this.getTests();
 
-    _subsTests.subscribe(next => {
+    subsTests.subscribe(_ => {
       this.getPercentage();
     });
   }
@@ -51,12 +55,15 @@ export class TestsComponent implements OnInit {
     const promise = new ReplaySubject(1);
 
     if (this.tests.results.length > 0) {
-      var _dataLabels = [];
+      const dataLabels = [];
       this.tests.results.forEach(item => {
-        _dataLabels.push(this.datepipe.transform(item.data, 'dd/MM'));
+        dataLabels.push(this.datepipe.transform(item.data, 'dd/MM'));
         this.totalTestsIncreaseValues.push(item.increaseFromYesterday);
+        this.totalTestsMolecolariIncreaseValues.push(item.increaseFromYesterdayTotaleMolecolare);
+        this.totalTestsAntigeniciRapidiIncreaseValues.push(item.increaseFromYesterdayTotaleAntigenicoRapido);
       });
-      this.totalTestsIncrease = this.chartService.createChart(_dataLabels, 'Line', this.totalTestsIncreaseValues);
+      this.totalTestsIncrease = this.chartService.createChart(dataLabels, 'Line',
+        this.totalTestsIncreaseValues, this.totalTestsMolecolariIncreaseValues, this.totalTestsAntigeniciRapidiIncreaseValues);
       promise.next();
     }
 
@@ -65,16 +72,16 @@ export class TestsComponent implements OnInit {
 
   getPercentage() {
     if (this.newPositive && this.newPositive.results.length > 0 && this.tests && this.tests.results && this.tests.results.length > 0) {
-      let _percentageNewPositiveByTest: number[] = [];
-      var _dataLabels = [];
+      const percentageNewPositiveByTest: number[] = [];
+      const dataLabels = [];
       for (let index = 0; index < this.newPositive.results.length; index++) {
         const _newPositive = this.newPositive.results[index];
         const test = this.totalTestsIncreaseValues[index];
-        _dataLabels.push(this.datepipe.transform(_newPositive.data, 'dd/MM'));
+        dataLabels.push(this.datepipe.transform(_newPositive.data, 'dd/MM'));
 
-        _percentageNewPositiveByTest[index] = Number(((_newPositive.value * 100) / test).toFixed(2));
+        percentageNewPositiveByTest[index] = Number(((_newPositive.value * 100) / test).toFixed(2));
       }
-      this.percentageNewPositiveByTest = this.chartService.createChart(_dataLabels, 'Line', _percentageNewPositiveByTest);
+      this.percentageNewPositiveByTest = this.chartService.createChart(dataLabels, 'Line', percentageNewPositiveByTest);
     }
   }
 
