@@ -77,6 +77,8 @@ export class VaccineComponent implements OnInit {
     this.tiles.push({ footer: '', header: 'Donne', percentage: this.formatHundreds(this.vaccineData.sessoFemminile.toString()), cols: 2, rows: 2, color: '#99d6ff' });
     this.tiles.push({ footer: '', header: 'Sanitari', percentage: this.formatHundreds(this.vaccineData.categoriaOss.toString()), cols: 2, rows: 2, color: '#b3e0ff' });
     this.tiles.push({ footer: '', header: 'Non sanitari', percentage: this.formatHundreds(this.vaccineData.categoriaNonSanitari.toString()), cols: 2, rows: 2, color: '#99d6ff' });
+    this.tiles.push({ footer: '', header: 'Scuola', percentage: this.formatHundreds(this.vaccineData.categoriaScuola.toString()), cols: 2, rows: 2, color: '#b3e0ff' });
+    this.tiles.push({ footer: '', header: 'Altro', percentage: this.formatHundreds(this.vaccineData.categoriaAltro.toString()), cols: 2, rows: 2, color: '#99d6ff' });
     this.tiles.push({ footer: '', header: 'Over 80', percentage: this.formatHundreds(this.vaccineData.categoriaOver80.toString()), cols: 2, rows: 2, color: '#b3e0ff' });
     this.tiles.push({ footer: '', header: 'RSA', percentage: this.formatHundreds(this.vaccineData.categoriaRsa.toString()), cols: 2, rows: 2, color: '#99d6ff' });
   }
