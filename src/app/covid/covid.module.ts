@@ -15,7 +15,7 @@ import { InfectedComponent } from '../shared/infected/infected.component';
 import { ResumeComponent } from '../shared/resume/resume.component';
 import { StatsComponent } from '../shared/stats/stats.component';
 import { TestsComponent } from '../shared/tests/tests.component';
-import { RankingComponent } from './../shared/ranking/ranking.component';
+import { RankingComponent } from '../shared/ranking/ranking.component';
 import { CovidComponent } from './covid.component';
 import { CovidRoutes } from './covid.routing';
 import { DashboardDeadComponent } from './dashboard/dashboard-dead/dashboard-dead.component';
@@ -23,7 +23,6 @@ import { DashboardHealedComponent } from './dashboard/dashboard-healed/dashboard
 import { DashboardHospitalizedComponent } from './dashboard/dashboard-hospitalized/dashboard-hospitalized.component';
 import { DashboardInfectedComponent } from './dashboard/dashboard-infected/dashboard-infected.component';
 import { DashboardTestsComponent } from './dashboard/dashboard-tests/dashboard-tests.component';
-import { DashboardVaccineComponent } from './dashboard/dashboard-vaccine/dashboard-vaccine.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DistrictInfectedComponent } from './district/district-infected/district-infected.component';
 import { DistrictStatsComponent } from './district/district-stats/district-stats.component';
@@ -74,7 +73,6 @@ import { VaccineComponent } from './vaccine/vaccine.component';
     DistrictStatsComponent,
     DistrictVaccineComponent,
     RegionVaccineComponent,
-    DashboardVaccineComponent,
     VaccineComponent,
     VaccinePercentageComponent,
     RankingComponent,

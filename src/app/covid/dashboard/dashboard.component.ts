@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 import {Component, OnInit} from '@angular/core';
 import {DashBoardService} from './dashboard.service';
@@ -12,7 +13,7 @@ import {ChartService} from '../../charts/chart.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private http: HttpClient, private chartService: ChartService, private dashboardService: DashBoardService) { }
+  constructor(private http: HttpClient, private chartService: ChartService, private dashboardService: DashBoardService, private router: Router) { }
 
   public migrationDate;
   public resumeData: any = {};
@@ -56,5 +57,7 @@ export class DashboardComponent implements OnInit {
     return Object.keys(this.statsData).length === 0;
   }
 
-
+  public redirectToVaccine() {
+    this.router.navigate(['/vaccine']);
+  }
 }

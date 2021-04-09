@@ -1,7 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ChartOptions, ChartService } from '../../charts/chart.service';
-import { Chart } from '../model/Chart';
-import { InfoChart } from '../model/InfoChart';
+import {Component, Input, OnInit} from '@angular/core';
+import {ChartOptions, ChartService} from '../../charts/chart.service';
+import {Chart} from '../model/Chart';
+import {InfoChart} from '../model/InfoChart';
 
 @Component({
   selector: 'app-age-group-vaccine',
@@ -10,7 +10,6 @@ import { InfoChart } from '../model/InfoChart';
 })
 export class AgeGroupVaccineComponent implements OnInit {
 
-  public chartInfo: InfoChart;
   public categoryChartInfo: InfoChart;
   public donutChartInfo: InfoChart;
 
@@ -27,61 +26,28 @@ export class AgeGroupVaccineComponent implements OnInit {
   donutLabels = [];
   donutChartValues = [];
 
-  chart: Chart;
   categoryChart: Chart;
   donutChart: Chart;
 
+  @Input() provider: string;
   @Input() region: string;
   @Input() data: any;
 
-  constructor(private chartService: ChartService) { }
+  constructor(private chartService: ChartService) {
+  }
 
   ngOnInit(): void {
 
-    this.chartInfo = new InfoChart();
-    this.chartInfo.title = 'Vaccinazioni per genere';
-    this.chartInfo.subtitle = this.region;
-    this.chartInfo.firstLegend = 'Donne';
-    this.chartInfo.secondLegend = 'Uomini';
-    this.chartInfo.desc = 'Il seguente grafico rappresenta le vaccinazioni di uomini e donne per fasce d\'età in Italia';
-
     this.categoryChartInfo = new InfoChart();
-    this.categoryChartInfo.title = 'Vaccinazioni per categoria di persone';
+    this.categoryChartInfo.title = this.provider ? 'Vaccinazioni ' + this.provider :  'Vaccinazioni per fasce d\'età';
     this.categoryChartInfo.subtitle = this.region;
     this.categoryChartInfo.firstLegend = 'Non sanitari';
     this.categoryChartInfo.secondLegend = 'Sanitari';
     this.categoryChartInfo.thirdLegend = 'RSA';
     this.categoryChartInfo.fourthLegend = 'Over 80';
-    this.categoryChartInfo.desc = 'Il seguente grafico rappresenta le vaccinazioni divise per categoria e fasce d\'età in Italia';
+    this.categoryChartInfo.desc = 'Il seguente grafico rappresenta le vaccinazioni divise per categoria e fasce d\'età per la regione ' + this.region;
 
-    this.donutChartInfo = new InfoChart();
-    this.donutChartInfo.title = 'Vaccinazioni per fasce d\'età';
-    this.donutChartInfo.subtitle = this.region;
-    this.donutChartInfo.desc = 'Il seguente grafico a torta rappresenta le vaccinazioni divise per fasce d\'età in Italia';
-
-
-    this.createGenderChart();
     this.createCategoryChart();
-    this.createDonutChart();
-
-  }
-
-  private createGenderChart() {
-
-    this.data.forEach((item: any) => {
-      this.labels.push(item.fasciaAnagrafica);
-      this.manValues.push(item.sessoMaschile);
-      this.womenValues.push(item.sessoFemminile);
-    });
-
-    const options: ChartOptions = {
-      labels: this.labels,
-      prefixLabel: "Età: ",
-      type: 'Bar',
-      allLabelsVisible: true
-    };
-
-    this.chart = this.chartService.generateChart(options, this.manValues, this.womenValues);
 
   }
 
@@ -97,7 +63,7 @@ export class AgeGroupVaccineComponent implements OnInit {
 
     const options: ChartOptions = {
       labels: this.categoryLabels,
-      prefixLabel: "Età: ",
+      prefixLabel: 'Età: ',
       type: 'Bar',
       allLabelsVisible: true
     };
@@ -106,9 +72,5 @@ export class AgeGroupVaccineComponent implements OnInit {
 
   }
 
-
-  private createDonutChart() {
-    // TODO
-  }
 
 }

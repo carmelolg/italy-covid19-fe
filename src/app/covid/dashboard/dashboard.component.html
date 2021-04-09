@@ -4,19 +4,19 @@
       <mat-card-content>
         <div class="d-flex flex-wrap">
           <div>
-            <mat-card-title>Epidemia da COVID-19 in Italia </mat-card-title>
+            <mat-card-title>Epidemia da COVID-19 in Italia</mat-card-title>
             <mat-card-subtitle>Andamento giornaliero e statistiche</mat-card-subtitle>
 
+            <button mat-raised-button color="warn" (click)="redirectToVaccine()">Per i dati sui vaccini clicca qui</button>
+            <br />
             <span *ngIf="migrationDate"><br />
               <mat-card-title>Ultimo aggiornamento:
                 {{migrationDate | date:  'dd-MM-yyyy, H:mm' }}</mat-card-title>
-              <br />
-            </span>
+                <br />
+              </span>
           </div>
         </div>
-
         <app-stats *ngIf="!isStatsUndefined()" [data]="statsData"></app-stats>
-
       </mat-card-content>
     </mat-card>
   </div>
@@ -28,35 +28,26 @@
       <div class="min-height-800">
         <mat-tab-group mat-align-tabs="center" mat-stretch-tabs (selectedTabChange)="changeTabHandler($event)">
           <mat-tab label="Riepilogo">
-
             <app-resume *ngIf="resumeData.results && resumeData.results.length > 0" region="Italia"
               [data]="resumeData.results"></app-resume>
-
-          </mat-tab>
-
-          <mat-tab label="Vaccini">
-            <app-dashboard-vaccine></app-dashboard-vaccine>
           </mat-tab>
 
           <mat-tab label="Contagi">
             <app-dashboard-infected></app-dashboard-infected>
           </mat-tab>
+
           <mat-tab label="Ricoveri">
-
             <app-dashboard-hospitalized></app-dashboard-hospitalized>
-
           </mat-tab>
-          <mat-tab label="Deceduti / Guariti">
 
+          <mat-tab label="Deceduti / Guariti">
             <app-dashboard-dead></app-dashboard-dead>
             <mat-divider></mat-divider>
             <app-dashboard-healed></app-dashboard-healed>
-
           </mat-tab>
+
           <mat-tab label="Tamponi">
-
             <app-dashboard-tests></app-dashboard-tests>
-
           </mat-tab>
         </mat-tab-group>
       </div>

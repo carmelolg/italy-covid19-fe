@@ -2,14 +2,23 @@
 <!-- sidebar -->
 <!-- ============================================================== -->
 <mat-nav-list appAccordion>
-    <mat-list-item appAccordionLink *ngFor="let menuitem of menuItems.getMenuitem()" routerLinkActive="selected" group="{{menuitem.state}}">
-        <a class="" appAccordionToggle [routerLink]="['/', menuitem.state]" *ngIf="menuitem.type === 'link'" (click)="toggleNavBarHandler($event)">
-          <mat-icon>{{ menuitem.icon }}</mat-icon>
-            <span>{{ menuitem.name }}</span>
-            <span fxFlex></span>
-<!--            <span class="label label-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{ badge.value }}</span>-->
-        </a>
+  <mat-list-item appAccordionLink *ngFor="let menuitem of menuItems.getMenuitem()" routerLinkActive="selected"
+    group="{{menuitem.state}}">
+    <a class="" appAccordionToggle [routerLink]="['/', menuitem.state]" *ngIf="menuitem.type === 'link'"
+      (click)="toggleNavBarHandler($event)">
+      <mat-icon>{{ menuitem.icon }}</mat-icon>
+      <span>{{ menuitem.name }}</span>
+      <span fxFlex></span>
+      <!--            <span class="label label-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{ badge.value }}</span>-->
+    </a>
 
-    </mat-list-item>
+  </mat-list-item>
+  <br />
+
+  <mat-list-item fxLayoutAlign="center center" appAccordionLink routerLinkActive="selected">
+    <a href="https://www.buymeacoffee.com/carzindo.app" target="_blank"><img
+        src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" alt="Buy Me A Coffee"
+        style="height: 50x !important;width: 180px !important;"></a>
+  </mat-list-item>
 
 </mat-nav-list>

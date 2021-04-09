@@ -1,6 +1,12 @@
+<app-age-group-vaccine
+  *ngIf="ageGroups.length > 0"
+  region="Italia"
+  [data]="ageGroups"
+></app-age-group-vaccine>
+
+
 <div fxLayout="row wrap">
-  <div fxFlex.gt-lg="100" fxFlex.gt-md="100" fxFlex.gt-xs="100" fxFlex="100">
-    <mat-card>
+    <mat-card style="flex-grow: 1">
       <mat-card-content>
         <div class="d-flex flex-wrap">
           <div>
@@ -12,15 +18,8 @@
       </mat-card-content>
       <app-ranking [data]="bestFive"></app-ranking>
     </mat-card>
-  </div>
-</div>
 
-<br />
-<mat-divider></mat-divider>
-
-<div fxLayout="row wrap">
-  <div fxFlex.gt-lg="100" fxFlex.gt-md="100" fxFlex.gt-xs="100" fxFlex="100">
-    <mat-card>
+    <mat-card style="flex-grow: 1">
       <mat-card-content>
         <div class="d-flex flex-wrap">
           <div>
@@ -32,10 +31,9 @@
       </mat-card-content>
       <app-ranking [data]="worstFive"></app-ranking>
     </mat-card>
-  </div>
 </div>
 
-<br />
+<br/>
 <mat-divider></mat-divider>
 
 <div fxLayout="row wrap">
