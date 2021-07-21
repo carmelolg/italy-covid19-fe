@@ -75,13 +75,15 @@ export class VaccineComponent implements OnInit {
 
   initTiles() {
     this.tiles.push({ footer: '', header: 'Percentuale eseguiti', percentage: this.percentage.toFixed(2) + ' %', cols: 4, rows: 2, color: '#99d6ff' });
+
     this.tiles.push({ footer: '', header: 'Consegnati', percentage: this.formatHundreds(this.delivered.toString()), cols: 2, rows: 2, color: '#b3e0ff' });
     this.tiles.push({ footer: '', header: 'Somministrati', percentage: this.formatHundreds(this.performed.toString()), cols: 2, rows: 2, color: '#99d6ff' });
     this.tiles.push({ footer: '', header: 'Prima dose', percentage: this.formatHundreds(this.vaccineData.primaDose.toString()), cols: 2, rows: 2, color: '#b3e0ff' });
     this.tiles.push({ footer: '', header: 'Seconda dose', percentage: this.formatHundreds(this.vaccineData.secondaDose.toString()), cols: 2, rows: 2, color: '#99d6ff' });
-
+    this.tiles.push({ footer: '', header: 'Infezione pregressa', percentage: this.formatHundreds(this.vaccineData.pregressaInfezione.toString()), cols: 2, rows: 2, color: '#b3e0ff' });
+    this.tiles.push({ footer: '', header: '', percentage: '', cols: 2, rows: 2, color: '#99d6ff' });
     this.getPercentageVaccinated();
-    this.tiles.push({ footer: '', header: 'Popolazione vaccinata completamente', percentage: '~ ' + this.percentageVaccinated.toFixed(2) + ' %', cols: 4, rows: 2, color: '#99d6ff' });
+    this.tiles.push({ footer: '', header: 'Percentuale italiana vaccinati', percentage: '~ ' + this.percentageVaccinated.toFixed(2) + ' %', cols: 4, rows: 2, color: '#99d6ff' });
     /*this.tiles.push({ footer: '', header: 'Sanitari', percentage: this.formatHundreds(this.vaccineData.categoriaOss.toString()), cols: 2, rows: 2, color: '#b3e0ff' });
     this.tiles.push({ footer: '', header: 'Non sanitari', percentage: this.formatHundreds(this.vaccineData.categoriaNonSanitari.toString()), cols: 2, rows: 2, color: '#99d6ff' });
     this.tiles.push({ footer: '', header: 'Scuola', percentage: this.formatHundreds(this.vaccineData.categoriaScuola.toString()), cols: 2, rows: 2, color: '#b3e0ff' });
