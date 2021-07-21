@@ -17,6 +17,8 @@ export class VaccineComponent implements OnInit {
   delivered = 0;
   percentage = 0;
 
+  percentageVaccinated = 0;
+
   performedRanking: any = {};
   deliveredRanking: any = {};
 
@@ -67,18 +69,25 @@ export class VaccineComponent implements OnInit {
     });
   }
 
+  getPercentageVaccinated() {
+    this.percentageVaccinated = this.vaccineData.secondaDose * 100 / Utils.italyPopulation();
+  }
+
   initTiles() {
     this.tiles.push({ footer: '', header: 'Percentuale eseguiti', percentage: this.percentage.toFixed(2) + ' %', cols: 4, rows: 2, color: '#99d6ff' });
     this.tiles.push({ footer: '', header: 'Consegnati', percentage: this.formatHundreds(this.delivered.toString()), cols: 2, rows: 2, color: '#b3e0ff' });
     this.tiles.push({ footer: '', header: 'Somministrati', percentage: this.formatHundreds(this.performed.toString()), cols: 2, rows: 2, color: '#99d6ff' });
     this.tiles.push({ footer: '', header: 'Prima dose', percentage: this.formatHundreds(this.vaccineData.primaDose.toString()), cols: 2, rows: 2, color: '#b3e0ff' });
     this.tiles.push({ footer: '', header: 'Seconda dose', percentage: this.formatHundreds(this.vaccineData.secondaDose.toString()), cols: 2, rows: 2, color: '#99d6ff' });
-    this.tiles.push({ footer: '', header: 'Sanitari', percentage: this.formatHundreds(this.vaccineData.categoriaOss.toString()), cols: 2, rows: 2, color: '#b3e0ff' });
+
+    this.getPercentageVaccinated();
+    this.tiles.push({ footer: '', header: 'Popolazione vaccinata completamente', percentage: this.percentageVaccinated.toFixed(2) + ' %', cols: 4, rows: 2, color: '#99d6ff' });
+    /*this.tiles.push({ footer: '', header: 'Sanitari', percentage: this.formatHundreds(this.vaccineData.categoriaOss.toString()), cols: 2, rows: 2, color: '#b3e0ff' });
     this.tiles.push({ footer: '', header: 'Non sanitari', percentage: this.formatHundreds(this.vaccineData.categoriaNonSanitari.toString()), cols: 2, rows: 2, color: '#99d6ff' });
     this.tiles.push({ footer: '', header: 'Scuola', percentage: this.formatHundreds(this.vaccineData.categoriaScuola.toString()), cols: 2, rows: 2, color: '#b3e0ff' });
     this.tiles.push({ footer: '', header: 'Altro', percentage: this.formatHundreds(this.vaccineData.categoriaAltro.toString()), cols: 2, rows: 2, color: '#99d6ff' });
     this.tiles.push({ footer: '', header: 'Over 80', percentage: this.formatHundreds(this.vaccineData.categoriaOver80.toString()), cols: 2, rows: 2, color: '#b3e0ff' });
-    this.tiles.push({ footer: '', header: 'RSA', percentage: this.formatHundreds(this.vaccineData.categoriaRsa.toString()), cols: 2, rows: 2, color: '#99d6ff' });
+    this.tiles.push({ footer: '', header: 'RSA', percentage: this.formatHundreds(this.vaccineData.categoriaRsa.toString()), cols: 2, rows: 2, color: '#99d6ff' });*/
   }
 
   private formatHundreds(s: String): string {

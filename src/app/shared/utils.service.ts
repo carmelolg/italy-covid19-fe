@@ -11,4 +11,8 @@ export class Utils {
     return s.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   }
 
+  public static italyPopulation(): number {
+    return 60360000;
+  }
+
 }
