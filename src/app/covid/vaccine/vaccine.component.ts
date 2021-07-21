@@ -81,7 +81,7 @@ export class VaccineComponent implements OnInit {
     this.tiles.push({ footer: '', header: 'Seconda dose', percentage: this.formatHundreds(this.vaccineData.secondaDose.toString()), cols: 2, rows: 2, color: '#99d6ff' });
 
     this.getPercentageVaccinated();
-    this.tiles.push({ footer: '', header: 'Popolazione vaccinata completamente', percentage: this.percentageVaccinated.toFixed(2) + ' %', cols: 4, rows: 2, color: '#99d6ff' });
+    this.tiles.push({ footer: '', header: 'Popolazione vaccinata completamente', percentage: '~ ' + this.percentageVaccinated.toFixed(2) + ' %', cols: 4, rows: 2, color: '#99d6ff' });
     /*this.tiles.push({ footer: '', header: 'Sanitari', percentage: this.formatHundreds(this.vaccineData.categoriaOss.toString()), cols: 2, rows: 2, color: '#b3e0ff' });
     this.tiles.push({ footer: '', header: 'Non sanitari', percentage: this.formatHundreds(this.vaccineData.categoriaNonSanitari.toString()), cols: 2, rows: 2, color: '#99d6ff' });
     this.tiles.push({ footer: '', header: 'Scuola', percentage: this.formatHundreds(this.vaccineData.categoriaScuola.toString()), cols: 2, rows: 2, color: '#b3e0ff' });
