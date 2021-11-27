@@ -18,10 +18,17 @@ export class AgeGroupVaccineComponent implements OnInit {
   womenValues = [];
 
   categoryLabels = [];
+  
+  primaDose = [];
+  secondaDose = [];
+  terzaDose = [];
+
+/*
   ossValues = [];
   normalPeopleValues = [];
   rsaValues = [];
   over80Values = [];
+*/
 
   donutLabels = [];
   donutChartValues = [];
@@ -41,10 +48,10 @@ export class AgeGroupVaccineComponent implements OnInit {
     this.categoryChartInfo = new InfoChart();
     this.categoryChartInfo.title = this.provider ? 'Vaccinazioni ' + this.provider :  'Vaccinazioni per fasce d\'età';
     this.categoryChartInfo.subtitle = this.region;
-    this.categoryChartInfo.firstLegend = 'Non sanitari';
-    this.categoryChartInfo.secondLegend = 'Sanitari';
-    this.categoryChartInfo.thirdLegend = 'RSA';
-    this.categoryChartInfo.fourthLegend = 'Over 80';
+    this.categoryChartInfo.firstLegend = 'Prima dose';
+    this.categoryChartInfo.secondLegend = 'Seconda dose';
+    this.categoryChartInfo.thirdLegend = 'Terza dose';
+    //this.categoryChartInfo.fourthLegend = 'Over 80';
     this.categoryChartInfo.desc = 'Il seguente grafico rappresenta le vaccinazioni divise per categoria e fasce d\'età per la regione ' + this.region;
 
     this.createCategoryChart();
@@ -55,10 +62,15 @@ export class AgeGroupVaccineComponent implements OnInit {
 
     this.data.forEach((item: any) => {
       this.categoryLabels.push(item.fasciaAnagrafica);
+      this.primaDose.push(item.primaDose);
+      this.secondaDose.push(item.secondaDose);
+      this.terzaDose.push(item.terzaDose);
+      /*
       this.ossValues.push(item.categoriaOss);
       this.normalPeopleValues.push(item.categoriaNonSanitari);
       this.rsaValues.push(item.categoriaRsa);
       this.over80Values.push(item.categoriaOver80);
+      */
     });
 
     const options: ChartOptions = {
@@ -68,7 +80,7 @@ export class AgeGroupVaccineComponent implements OnInit {
       allLabelsVisible: true
     };
 
-    this.categoryChart = this.chartService.generateChart(options, this.ossValues, this.normalPeopleValues, this.rsaValues, this.over80Values);
+    this.categoryChart = this.chartService.generateChart(options, this.primaDose, this.secondaDose, this.terzaDose);
 
   }
 

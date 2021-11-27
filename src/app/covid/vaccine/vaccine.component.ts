@@ -61,7 +61,7 @@ export class VaccineComponent implements OnInit {
 
   getVaccineData() {
     return new Promise(resolve => {
-      this.vaccineService.getVaccineData().pipe(take(1)).subscribe(data => {
+      this.vaccineService.getVaccineData().pipe(take(1)).subscribe(data => {    
         this.vaccineData = data.all;
         this.lastUpdate = data.all.ultimoAggiornamentoInterno;
         resolve(true);
@@ -80,8 +80,8 @@ export class VaccineComponent implements OnInit {
     this.tiles.push({ footer: '', header: 'Somministrati', percentage: this.formatHundreds(this.performed.toString()), cols: 2, rows: 2, color: '#99d6ff' });
     this.tiles.push({ footer: '', header: 'Prima dose', percentage: this.formatHundreds(this.vaccineData.primaDose.toString()), cols: 2, rows: 2, color: '#b3e0ff' });
     this.tiles.push({ footer: '', header: 'Seconda dose', percentage: this.formatHundreds(this.vaccineData.secondaDose.toString()), cols: 2, rows: 2, color: '#99d6ff' });
-    this.tiles.push({ footer: '', header: 'Infezione pregressa', percentage: this.formatHundreds(this.vaccineData.pregressaInfezione.toString()), cols: 2, rows: 2, color: '#b3e0ff' });
-    this.tiles.push({ footer: '', header: '', percentage: '', cols: 2, rows: 2, color: '#99d6ff' });
+    this.tiles.push({ footer: '', header: 'Terza dose', percentage: this.formatHundreds(this.vaccineData.terzaDose.toString()), cols: 2, rows: 2, color: '#b3e0ff' });
+    this.tiles.push({ footer: '', header: 'Infezione pregressa', percentage: this.formatHundreds(this.vaccineData.pregressaInfezione.toString()), cols: 2, rows: 2, color: '#99d6ff' });
     this.getPercentageVaccinated();
     this.tiles.push({ footer: '', header: 'Percentuale italiana vaccinati', percentage: '~ ' + this.percentageVaccinated.toFixed(2) + ' %', cols: 4, rows: 2, color: '#99d6ff' });
     /*this.tiles.push({ footer: '', header: 'Sanitari', percentage: this.formatHundreds(this.vaccineData.categoriaOss.toString()), cols: 2, rows: 2, color: '#b3e0ff' });

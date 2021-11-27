@@ -12,7 +12,7 @@ export class Utils {
   }
 
   public static italyPopulation(): number {
-    return 60360000;
+    return 54009944; //vaccinabili su 60360000;
   }
 
 }
